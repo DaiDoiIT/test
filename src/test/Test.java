@@ -15,7 +15,12 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("JJJ");
+        System.out.print("Menu");
+        System.out.print("1. Họ tên:");
+        System.out.print("2. Tuổi:");
+        System.out.print("3. Giới tính:");
+        System.out.print("4. Địa chỉ:");
+        System.out.print("5. Email:");
     }
     
 }
