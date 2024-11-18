@@ -14,10 +14,10 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         System.out.println("JJJ");
         System.out.println("This is a commit");
         System.out.println("Hey");
+        System.out.println("New clone");
     }
     
 }
