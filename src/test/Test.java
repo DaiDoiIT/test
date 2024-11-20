@@ -4,6 +4,8 @@
  */
 package test;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author vanh
@@ -13,6 +15,7 @@ public class Test {
     /**
      * @param args the command line arguments
      */
+        
     public static void main(String[] args) {
         System.out.println("JJJ");
         System.out.println("This is a commit");
@@ -31,5 +34,7 @@ public class Test {
             }
         }
         System.out.println("Wednesday commit");
+        ArrayList<NewFile> list = new ArrayList<>();
     }
+    
 }
