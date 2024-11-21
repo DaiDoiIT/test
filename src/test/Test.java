@@ -35,6 +35,7 @@ public class Test {
         }
         System.out.println("Wednesday commit");
         ArrayList<NewFile> list = new ArrayList<>();
+        list.add(new NewFile("01", 02, "Name"));
     }
     
 }
