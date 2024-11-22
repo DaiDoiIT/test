@@ -38,7 +38,7 @@ public class Test {
         list.add(new NewFile("01", 02, "Name"));
         list.add(new NewFile("02", 10, "Ten"));
         System.out.println(list);
-        
+        System.out.println("Friday");
     }
     
 }
