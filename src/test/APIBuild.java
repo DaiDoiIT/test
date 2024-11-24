@@ -1,6 +1,6 @@
 package test;
 
-public class NewFile {
+public class APIBuild {
     private String id;
     private Integer ma;
     private String ten;
@@ -29,13 +29,13 @@ public class NewFile {
         this.ten = ten;
     }
 
-    public NewFile(String id, Integer ma, String ten) {
+    public APIBuild(String id, Integer ma, String ten) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
     }
 
-    public NewFile() {
+    public APIBuild() {
         
     }
 }

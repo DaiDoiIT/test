@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author vanh
  */
-public class Test {
+public class XayDungAPI {
 
     /**
      * @param args the command line arguments
@@ -33,14 +33,8 @@ public class Test {
                 System.out.println(j);
             }
         }
-        System.out.println("Wednesday commit");
-        ArrayList<NewFile> list = new ArrayList<>();
-        list.add(new NewFile("01", 02, "Name"));
-        list.add(new NewFile("02", 10, "Ten"));
-        System.out.println(list);
-        System.out.println("Friday");
-        System.out.println("103");
-
+        ArrayList<APIBuild> list = new ArrayList<>();
+        list.add(new APIBuild("Build01", 01, "Business"));
     }
     
 }
