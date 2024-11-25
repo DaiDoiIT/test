@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Contract</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+        }
+        .endpoint h3 {
+            margin: 10px 0;
+        }
+        .method {
+            display: inline-block;
+            font-size: 12px;
+            color: white;
+            background-color: #007BFF;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-right: 10px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>API Contract Documentation</h1>
+    </header>
+    <div class="container">
+        <h2>API Overview</h2>
+        <p>This document outlines the API endpoints, their request formats, and expected responses.</p>
+        
+        <div class="endpoint">
+            <h3><span class="method">GET</span> /users</h3>
+            <p>Retrieve a list of all users.</p>
+            <h4>Response:</h4>
+            <pre>
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john.doe@example.com"
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane.smith@example.com"
+        }
+    ]
+}
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="method">POST</span> /users</h3>
+            <p>Create a new user.</p>
+            <h4>Request Body:</h4>
+            <pre>
+{
+    "name": "New User",
+    "email": "new.user@example.com"
+}
+            </pre>
+            <h4>Response:</h4>
+            <pre>
+{
+    "id": 3,
+    "name": "New User",
+    "email": "new.user@example.com"
+}
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h3><span class="method">PUT</span> /users/{id}</h3>
+            <p>Update an existing user.</p>
+            <h4>Request Body:</h4>
+            <pre>
+{
+    "name": "Updated Name",
+    "email": "updated.email@example.com"
+}
+            </pre>
+            <h4>Response:</h4>
+            <pre>
+{
+    "id": 1,
+    "name": "Updated Name",
+    "email": "updated.email@example.com"
+}
+            </pre>
+        </div>
+    </div>
+</body>
+</html>
