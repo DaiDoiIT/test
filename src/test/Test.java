@@ -26,6 +26,8 @@ public class Test {
            System.out.println(number + " là số lẻ.");
 
        }
+        System.out.println("JJJ");
+        Viet anh test
     }
     
 }
