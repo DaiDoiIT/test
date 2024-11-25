@@ -31,6 +31,7 @@ public class XayDungAPI {
                 System.out.println(j);
             }
         }
+        System.out.println("AN");
 
     }
     
