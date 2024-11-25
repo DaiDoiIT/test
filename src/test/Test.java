@@ -15,9 +15,21 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+         int number = 10;
+
+       if (number % 2 == 0) {
+
+           System.out.println(number + " là số chẵn.");
+
+       } else {
+
+           System.out.println(number + " là số lẻ.");
+
+       }
         System.out.println("JJJ");
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
+        Viet anh test
     }
     
 }
