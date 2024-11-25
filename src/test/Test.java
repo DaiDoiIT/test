@@ -16,9 +16,12 @@ public class Test {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("JJJ");
+
         System.out.println("JJJ");
         System.out.println("Đỗ Hồng Minh");
         
+
+        System.out.println("Hey");
     }
     
 }
