@@ -4,8 +4,6 @@
  */
 package test;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author vanh
@@ -33,9 +31,7 @@ public class XayDungAPI {
                 System.out.println(j);
             }
         }
-        ArrayList<APIBuild> list = new ArrayList<>();
-        list.add(new APIBuild("Build01", 01, "Business"));
-        System.out.println("An");
+
     }
     
 }
