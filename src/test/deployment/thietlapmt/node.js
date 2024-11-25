@@ -15,4 +15,5 @@ sequelize.authenticate().then(() => {
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://your_user:your_password@localhost/your_database')
   .then(() => console.log('MongoDB connected successfully'))
+  console.log("Viet Anh")
   .catch(err => console.log('MongoDB connection error:', err));
