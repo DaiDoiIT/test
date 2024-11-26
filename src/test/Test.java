@@ -31,9 +31,21 @@ public class Test {
         scanner.close();
 
         // TODO code application logic here
-         int number = 10;
+        int a = 10;
+        int b = 5;
 
-       if (number % 2 == 0) {
+        // Tính tổng, hiệu, tích, thương
+        int sum = a + b;
+        int difference = a - b;
+        int product = a * b;
+        double quotient = (double) a / b;
+
+
+        // In kết quả
+        System.out.println("Tổng: " + sum);
+        System.out.println("Hiệu: " + difference);
+        System.out.println("Tích: " + product);
+        System.out.println("Thương: " + quotient);
 
            System.out.println(number + " là số chẵn.");
 
@@ -43,10 +55,17 @@ public class Test {
 
        }
         System.out.println("JJJ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
         Viet anh test
 
+    }
+
+    
     }
 
 }
