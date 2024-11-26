@@ -15,20 +15,6 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-         int number = 10;
-
-       if (number % 2 == 0) {
-
-           System.out.println(number + " là số chẵn.");
-
-       } else {
-
-           System.out.println(number + " là số lẻ.");
-
-       }
-       System.out.println("Hello, World!");
-
-        // Thực hiện phép tính cơ bản
         int a = 10;
         int b = 5;
 
@@ -45,5 +31,4 @@ public class Test {
         System.out.println("Thương: " + quotient);
     
     }
-    
 }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Web Design</title>
+    <style>
+      /* CSS Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f9;
+        color: #333;
+      }
+
+      header {
+        background: #4caf50;
+        color: white;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .column {
+        flex: 1;
+        min-width: 300px;
+        background: #ffffff;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .column h2 {
+        margin-bottom: 10px;
+        color: #4caf50;
+      }
+
+      .column p {
+        line-height: 1.6;
+      }
+
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+
+        header {
+          font-size: 1.5rem;
+        }
+
+        .column {
+          min-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Responsive Web Design</h1>
+      <p>Adjust your screen size to see the magic!</p>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <h2>Column 1</h2>
+          <p>
+            This is some text in the first column. Resize the window to see how
+            it adjusts.
+          </p>
+        </div>
+        <div class="column">
+          <h2>Column 2</h2>
+          <p>
+            This is some text in the second column. It stacks below the first
+            column on small screens.
+          </p>
+        </div>
+        <div class="column">
+          <h2>Column 3</h2>
+          <p>
+            This is some text in the third column. Flexbox makes this layout
+            responsive.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Responsive Design. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+1. Nền tảng triển khai:
+- Dịch vụ đám mây: AWS
+- Loai máy chủ: 
+  + Application sever: Node.js
+- Cơ sở dữ liệu: 
+  + My Sql
+  + Backup
+  + Casandra
+- Mạng và băng thông: 
+  + Cấu trúc mạng
+  + Loadbalancer
+  + AWS CloudFront
+  + Băng thông
+- Bảo mật:
+  + HTTPS
+  + Firewall
+  + Xác thực và phân quyền người dùng
+  + DDoS protection
+  + Cập nhật và vá lỗi bảo mật
+- Môi trường triển khai và CI/CD:
+  + GitHub Actions
+  + Git
+  + Containerzation
+  + Kubernetes
+- Giám sát và Logging:
+  + Datadog
+  + ELK Stack
+- Sao lưu và phục hồi:
+  + Sao lưu định kì
+  + Phục hồi sau thảm họa
+- Quản lý tài nguyên và chi phí:
+  + Đảm bảo hiệu xuất và tránh tình trạng quá tải
+  + Tối ưu hóa chi phí
