@@ -4,6 +4,8 @@
  */
 package test;
 
+import java.util.Scanner;
+
 /**
  *
  * @author vanh
@@ -31,6 +33,14 @@ public class Test {
         scanner.close();
 
         // TODO code application logic here
+
+        System.out.println("JJJ");
+        System.out.println("JJJ");
+        System.out.println("Đỗ Hồng Minh");
+        
+    }
+
+
         int a = 10;
         int b = 5;
 
