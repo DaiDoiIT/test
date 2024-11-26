@@ -27,6 +27,10 @@ public class Test {
 
        }
         System.out.println("JJJ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
         Viet anh test
