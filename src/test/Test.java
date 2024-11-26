@@ -13,7 +13,23 @@ public class Test {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a positive integer: ");
+        int number = scanner.nextInt();
+
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            long result = factorial(number);
+            System.out.println("The factorial of " + number + " is: " + result);
+        }
+
+        scanner.close();
+
         // TODO code application logic here
         int a = 10;
         int b = 5;
@@ -46,8 +62,10 @@ public class Test {
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
         Viet anh test
+
     }
 
     
     }
+
 }
