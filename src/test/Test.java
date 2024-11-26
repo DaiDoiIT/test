@@ -24,11 +24,30 @@ public class Test {
         int product = a * b;
         double quotient = (double) a / b;
 
+
         // In kết quả
         System.out.println("Tổng: " + sum);
         System.out.println("Hiệu: " + difference);
         System.out.println("Tích: " + product);
         System.out.println("Thương: " + quotient);
+
+           System.out.println(number + " là số chẵn.");
+
+       } else {
+
+           System.out.println(number + " là số lẻ.");
+
+       }
+        System.out.println("JJJ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+
+        System.out.println("A commit");
+        System.out.println("Lê Tuấn Anh");
+        Viet anh test
+    }
+
     
     }
 }

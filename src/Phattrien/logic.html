@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            padding: 15px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Discount Calculator</h1>
+    </header>
+    <div class="container">
+        <h2>Calculate Your Discount</h2>
+        <form id="discountForm">
+            <label for="amount">Total Purchase Amount (VND):</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+
+            <label for="customerType">Customer Type:</label>
+            <select id="customerType">
+                <option value="regular">Regular Customer</option>
+                <option value="vip">VIP Customer</option>
+                <option value="new">New Customer</option>
+            </select>
+
+            <button type="submit">Calculate Discount</button>
+        </form>
+        <div class="result" id="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Xử lý logic tính chiết khấu
+        document.getElementById('discountForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Lấy dữ liệu từ form
+            const amount = parseFloat(document.getElementById('amount').value);
+            const customerType = document.getElementById('customerType').value;
+
+            // Logic tính chiết khấu
+            let discountRate = 0;
+            if (customerType === 'regular') {
+                discountRate = 0.05; // 5% cho khách hàng thường
+            } else if (customerType === 'vip') {
+                discountRate = 0.1; // 10% cho khách hàng VIP
+            } else if (customerType === 'new') {
+                discountRate = 0.02; // 2% cho khách hàng mới
+            }
+
+            // Tính số tiền chiết khấu và tổng tiền sau chiết khấu
+            const discountAmount = amount * discountRate;
+            const totalAfterDiscount = amount - discountAmount;
+
+            // Hiển thị kết quả
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <p><strong>Total Purchase Amount:</strong> ${amount.toLocaleString()} VND</p>
+                <p><strong>Discount (${(discountRate * 100).toFixed(1)}%):</strong> ${discountAmount.toLocaleString()} VND</p>
+                <p><strong>Total After Discount:</strong> ${totalAfterDiscount.toLocaleString()} VND</p>
+            `;
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
