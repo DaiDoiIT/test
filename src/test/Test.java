@@ -10,17 +10,9 @@ package test;
  */
 public class Test {
 
-   import java.util.Scanner;
-
-public class FactorialCalculator {
-
-    // Method to calculate factorial using recursion
-    public static long factorial(int n) {
-        if (n <= 1) {
-            return 1; // Base case: factorial of 0 or 1 is 1
-        }
-        return n * factorial(n - 1); // Recursive call
-    }
+    /**
+     * @param args the command line arguments
+     */
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -37,7 +29,5 @@ public class FactorialCalculator {
 
         scanner.close();
     }
-}
-
     
 }
