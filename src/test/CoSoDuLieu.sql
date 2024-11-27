@@ -5,3 +5,6 @@ CREATE TABLE NhanVien(
     SDT int NOT NULL
 );
 
+INSERT INTO NhanVien VALUES
+('Viet Anh', 'NV01', 0901923045);
+
