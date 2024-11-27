@@ -17,7 +17,7 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Nhập số thứ nhất: ");
         int number1 = scanner.nextInt(); // Đọc số nguyên thứ nhất
@@ -33,8 +33,7 @@ public class Test {
 
         // Đóng Scanner để tránh rò rỉ tài nguyên
         scanner.close();
-    }
         
     }
 
-
+}
