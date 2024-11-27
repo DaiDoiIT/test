@@ -50,5 +50,26 @@ public class Test {
 
         // Hiển thị JFrame
         frame.setVisible(true);
+
+        // In kết quả
+        System.out.println("Tổng: " + sum);
+        System.out.println("Hiệu: " + difference);
+        System.out.println("Tích: " + product);
+        System.out.println("Thương: " + quotient);
+
+           System.out.println(number + " là số chẵn.");
+
+       } else {
+
+           System.out.println(number + " là số lẻ.");
+
+       }
+        System.out.println("JJJ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+
     }
-}
+
+    
+    
