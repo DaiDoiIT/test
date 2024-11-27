@@ -9,3 +9,5 @@ INSERT INTO NhanVien VALUES
 ('Viet Anh', 'NV01', 0901923045);
 
 select * from NhanVien
+
+select * from NhanVien where ten = 'Viet Anh';
