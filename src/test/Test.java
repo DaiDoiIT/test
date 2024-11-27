@@ -104,6 +104,11 @@ public class Test {
 
 
         // TODO code application logic here
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Nhập số thứ nhất: ");
+        int number1 = scanner.nextInt(); // Đọc số nguyên thứ nhất
 
         System.out.println("JJJ");
         System.out.println("JJJ");
@@ -135,15 +140,20 @@ public class Test {
         // Hiển thị JFrame
         frame.setVisible(true);
 
-        // In kết quả
-        System.out.println("Tổng: " + sum);
-        System.out.println("Hiệu: " + difference);
-        System.out.println("Tích: " + product);
-        System.out.println("Thương: " + quotient);
 
-           System.out.println(number + " là số chẵn.");
+        System.out.print("Nhập số thứ hai: ");
+        int number2 = scanner.nextInt(); // Đọc số nguyên thứ hai
 
-       } else {
+        // Tính tổng hai số
+        int sum = number1 + number2;
+
+        // Hiển thị kết quả
+        System.out.println("Tổng của " + number1 + " và " + number2 + " là: " + sum);
+
+
+        // Đóng Scanner để tránh rò rỉ tài nguyên
+        scanner.close();
+        
 
            System.out.println(number + " là số lẻ.");
 
