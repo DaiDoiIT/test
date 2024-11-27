@@ -4,7 +4,14 @@
  */
 package test;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
 import java.util.Scanner;
+
 
 /**
  *
@@ -17,6 +24,22 @@ public class Test {
      */
 
     public static void main(String[] args) {
+
+        // Tạo JFrame
+        JFrame frame = new JFrame("Giao diện đơn giản");
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout()); // Sử dụng FlowLayout
+
+        // Tạo một JTextField
+        JTextField textField = new JTextField(20);
+
+        // Tạo một JButton
+        JButton button = new JButton("Nhấn vào đây");
+
+        // Tạo JLabel để hiển thị kết quả
+        JLabel label = new JLabel("Kết quả sẽ hiển thị ở đây");
+
 
         Scanner scanner = new Scanner(System.in);
 
@@ -44,12 +67,25 @@ public class Test {
         int a = 10;
         int b = 5;
 
-        // Tính tổng, hiệu, tích, thương
-        int sum = a + b;
-        int difference = a - b;
-        int product = a * b;
-        double quotient = (double) a / b;
 
+        // Thêm ActionListener cho JButton
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Lấy văn bản từ JTextField và hiển thị trên JLabel
+                String inputText = textField.getText();
+                label.setText("Bạn đã nhập: " + inputText);
+            }
+        });
+
+        // Thêm các thành phần vào JFrame
+        frame.add(new JLabel("Nhập nội dung:"));
+        frame.add(textField);
+        frame.add(button);
+        frame.add(label);
+
+        // Hiển thị JFrame
+        frame.setVisible(true);
 
         // In kết quả
         System.out.println("Tổng: " + sum);
@@ -69,6 +105,10 @@ public class Test {
             System.out.println(i);
         }
 
+    }
+
+    
+
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
         System.out.println("Nguyễn Thái An");
@@ -79,3 +119,4 @@ public class Test {
     }
 
 }
+
