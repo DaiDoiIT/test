@@ -8,7 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 import java.util.Scanner;
 
@@ -18,7 +20,59 @@ import java.util.Scanner;
  * @author vanh
  */
 public class Test {
+    private String id;
 
+    @NotBlank(message = "Name cannot be blank")
+    private String name;
+
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @Positive(message = "Age must be a positive number")
+    private int age;
+
+    // Constructors, Getters, and Setters
+    public User() {}
+
+    public User(String id, String name, String email, int age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -104,13 +158,16 @@ public class Test {
 
 
         // TODO code application logic here
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Nhập số thứ nhất: ");
+        int number1 = scanner.nextInt(); // Đọc số nguyên thứ nhất
 
         System.out.println("JJJ");
         System.out.println("JJJ");
         System.out.println("Đỗ Hồng Minh");
         
-    }
-
 
         int a = 10;
         int b = 5;
@@ -132,22 +189,35 @@ public class Test {
         frame.add(button);
         frame.add(label);
 
-        // Hiển thị JFrame
-        frame.setVisible(true);
 
         // In kết quả
         System.out.println("Tổng: " + sum);
         System.out.println("Hiệu: " + difference);
         System.out.println("Tích: " + product);
         System.out.println("Thương: " + quotient);
+        if (number % 2 == 0) {
+            System.out.println(number + " là số chẵn.");
+        }
+        else {
+        // Hiển thị JFrame
+        frame.setVisible(true);
 
-           System.out.println(number + " là số chẵn.");
 
-       } else {
+        System.out.print("Nhập số thứ hai: ");
+        int number2 = scanner.nextInt(); // Đọc số nguyên thứ hai
 
+        // Tính tổng hai số
+        int sum = number1 + number2;
+
+        // Hiển thị kết quả
+        System.out.println("Tổng của " + number1 + " và " + number2 + " là: " + sum);
+
+
+        // Đóng Scanner để tránh rò rỉ tài nguyên
+        scanner.close();
            System.out.println(number + " là số lẻ.");
-
        }
+
         System.out.println("JJJ");
         for (int i = 1; i <= 10; i++) {
             System.out.println(i);
@@ -180,12 +250,18 @@ public class Test {
             }
         } catch (IOException e) {
             System.out.println("Lỗi khi đọc file: " + e.getMessage());
-        }
-        
+        }      
+
+        int a = 4;
+        System.out.println(a + "là một số");
+        System.out.println("A commit");
+    }
+
+}
+
     }
 
     
     }
 
 }
-
