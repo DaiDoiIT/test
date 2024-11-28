@@ -168,8 +168,6 @@ public class Test {
         System.out.println("JJJ");
         System.out.println("Đỗ Hồng Minh");
         
-    }
-
 
         int a = 10;
         int b = 5;
@@ -191,6 +189,16 @@ public class Test {
         frame.add(button);
         frame.add(label);
 
+
+        // In kết quả
+        System.out.println("Tổng: " + sum);
+        System.out.println("Hiệu: " + difference);
+        System.out.println("Tích: " + product);
+        System.out.println("Thương: " + quotient);
+        if (number % 2 == 0) {
+            System.out.println(number + " là số chẵn.");
+        }
+        else {
         // Hiển thị JFrame
         frame.setVisible(true);
 
@@ -207,11 +215,9 @@ public class Test {
 
         // Đóng Scanner để tránh rò rỉ tài nguyên
         scanner.close();
-        
-
            System.out.println(number + " là số lẻ.");
-
        }
+
         System.out.println("JJJ");
         for (int i = 1; i <= 10; i++) {
             System.out.println(i);
@@ -226,10 +232,16 @@ public class Test {
         System.out.println("Nguyễn Thái An");
         System.out.println("Lần thứ 2");
 
+        int a = 4;
+        System.out.println(a + "là một số");
+        System.out.println("A commit");
+    }
+
+}
+
     }
 
     
     }
 
 }
-
