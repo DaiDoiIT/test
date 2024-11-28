@@ -109,6 +109,26 @@ public class Test {
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
 
+         String fileName = "example.txt";
+        String content = "Xin chào, đây là nội dung được ghi vào file.";
+
+        // Ghi vào file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+        } catch (IOException e) {
+            System.out.println("Lỗi khi ghi file: " + e.getMessage());
+        }
+
+        // Đọc từ file
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("Nội dung trong file: " + line);
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        }
+        
     }
 
     
