@@ -8,7 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 import java.util.Scanner;
 
@@ -18,7 +20,59 @@ import java.util.Scanner;
  * @author vanh
  */
 public class Test {
+    private String id;
 
+    @NotBlank(message = "Name cannot be blank")
+    private String name;
+
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @Positive(message = "Age must be a positive number")
+    private int age;
+
+    // Constructors, Getters, and Setters
+    public User() {}
+
+    public User(String id, String name, String email, int age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
     /**
      * @param args the command line arguments
      */
