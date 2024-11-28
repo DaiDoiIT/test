@@ -232,6 +232,26 @@ public class Test {
         System.out.println("Nguyễn Thái An");
         System.out.println("Lần thứ 2");
 
+         String fileName = "example.txt";
+        String content = "Xin chào, đây là nội dung được ghi vào file.";
+
+        // Ghi vào file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+        } catch (IOException e) {
+            System.out.println("Lỗi khi ghi file: " + e.getMessage());
+        }
+
+        // Đọc từ file
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("Nội dung trong file: " + line);
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        }      
+
         int a = 4;
         System.out.println(a + "là một số");
         System.out.println("A commit");
