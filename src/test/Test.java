@@ -38,8 +38,6 @@ public class Test {
         System.out.println("JJJ");
         System.out.println("Đỗ Hồng Minh");
         
-    }
-
 
         int a = 10;
         int b = 5;
@@ -56,9 +54,9 @@ public class Test {
         System.out.println("Hiệu: " + difference);
         System.out.println("Tích: " + product);
         System.out.println("Thương: " + quotient);
-
-           System.out.println(number + " là số chẵn.");
-
+        if (number % 2 == 0) {
+            System.out.println(number + " là số chẵn.");
+        }
         else {
            System.out.println(number + " là số lẻ.");
        }
@@ -74,6 +72,7 @@ public class Test {
         System.out.println("Lần thứ 2");
         int a = 4;
         System.out.println(a + "là một số");
-
-        
+        System.out.println("A commit");
     }
+
+}
