@@ -10,6 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import java.util.Scanner;
 
 
@@ -104,7 +109,7 @@ public class Test {
 
 
         // TODO code application logic here
-        Scanner scanner = new Scanner(System.in);
+        
 
 
         System.out.print("Nhập số thứ nhất: ");
@@ -155,13 +160,10 @@ public class Test {
         scanner.close();
         
 
-           System.out.println(number + " là số lẻ.");
+           
 
        }
-        System.out.println("JJJ");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
-        }
+         
 
     }
 
@@ -179,3 +181,57 @@ public class Test {
 
 }
 
+public class OrderController {
+
+    private final Map<Integer, Order> orders = new HashMap<>();
+    private int currentId = 1;
+
+    // Create Order
+    
+
+    // Get Order by ID
+    
+
+    // Update Order
+    
+
+    // Delete Order
+    
+    
+
+    // List All Orders
+    
+   
+
+    // Order class (inner class for simplicity)
+    static class Order {
+        private int id;
+        private String customerName;
+        private double totalAmount;
+
+        // Getters and Setters
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getCustomerName() {
+            return customerName;
+        }
+
+        public void setCustomerName(String customerName) {
+            this.customerName = customerName;
+        }
+
+        public double getTotalAmount() {
+            return totalAmount;
+        }
+
+        public void setTotalAmount(double totalAmount) {
+            this.totalAmount = totalAmount;
+        }
+    }
+}
