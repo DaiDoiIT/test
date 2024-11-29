@@ -8,11 +8,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import javax.swing.table.DefaultTableModel;
+
 import java.util.Scanner;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -272,7 +287,7 @@ public class Test {
 
 
         // TODO code application logic here
-        Scanner scanner = new Scanner(System.in);
+        
 
 
         System.out.print("Nhập số thứ nhất: ");
@@ -329,6 +344,14 @@ public class Test {
 
         // Đóng Scanner để tránh rò rỉ tài nguyên
         scanner.close();
+
+        
+
+           
+
+       }
+         
+
            System.out.println(number + " là số lẻ.");
        }
 
@@ -336,6 +359,7 @@ public class Test {
         for (int i = 1; i <= 10; i++) {
             System.out.println(i);
         }
+
 
     }
 
@@ -379,3 +403,146 @@ public class Test {
     }
 
 }
+
+
+public class OrderController {
+
+    private final Map<Integer, Order> orders = new HashMap<>();
+    private int currentId = 1;
+
+    // Create Order
+    
+
+    // Get Order by ID
+    
+
+    // Update Order
+    
+
+    // Delete Order
+    
+    
+
+    // List All Orders
+    
+   
+
+    // Order class (inner class for simplicity)
+    static class Order {
+        private int id;
+        private String customerName;
+        private double totalAmount;
+
+        // Getters and Setters
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getCustomerName() {
+            return customerName;
+        }
+
+        public void setCustomerName(String customerName) {
+            this.customerName = customerName;
+        }
+
+        public double getTotalAmount() {
+            return totalAmount;
+        }
+
+        public void setTotalAmount(double totalAmount) {
+            this.totalAmount = totalAmount;
+        }
+    }
+}
+
+private JTable productTable;
+private DefaultTableModel cartModel;
+private JLabel totalLabel;
+
+public SalesApp() {
+        setTitle("Giao diện Bán hàng");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // Tạo bảng sản phẩm
+        String[] productColumns = {"ID", "Tên sản phẩm", "Giá"};
+        Object[][] productData = {
+            {1, "Sản phẩm A", 50000},
+            {2, "Sản phẩm B", 75000},
+            {3, "Sản phẩm C", 100000}
+        };
+
+        JTable productTable = new JTable(productData, productColumns);
+        JScrollPane productScrollPane = new JScrollPane(productTable);
+
+        // Tạo bảng giỏ hàng
+        String[] cartColumns = {"Tên sản phẩm", "Số lượng", "Giá"};
+        cartModel = new DefaultTableModel(cartColumns, 0);
+        JTable cartTable = new JTable(cartModel);
+        JScrollPane cartScrollPane = new JScrollPane(cartTable);
+
+        // Khu vực tổng tiền
+        JPanel totalPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        totalLabel = new JLabel("Tổng tiền: 0 VNĐ");
+        totalPanel.add(totalLabel);
+
+        // Nút thêm vào giỏ hàng
+        JButton addToCartButton = new JButton("Thêm vào giỏ hàng");
+        addToCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = productTable.getSelectedRow();
+                if (selectedRow != -1) {
+                    String productName = productTable.getValueAt(selectedRow, 1).toString();
+                    int price = Integer.parseInt(productTable.getValueAt(selectedRow, 2).toString());
+                    String quantityStr = JOptionPane.showInputDialog("Nhập số lượng:");
+                    if (quantityStr != null && !quantityStr.isEmpty()) {
+                        try {
+                            int quantity = Integer.parseInt(quantityStr);
+                            int total = price * quantity;
+
+                            // Thêm sản phẩm vào giỏ hàng
+                            cartModel.addRow(new Object[]{productName, quantity, total});
+                            updateTotal();
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Số lượng không hợp lệ!");
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn sản phẩm!");
+                }
+            }
+        });
+
+        // Thêm các thành phần vào giao diện
+        JPanel centerPanel = new JPanel(new GridLayout(1, 2));
+        centerPanel.add(productScrollPane);
+        centerPanel.add(cartScrollPane);
+
+        add(centerPanel, BorderLayout.CENTER);
+        add(addToCartButton, BorderLayout.SOUTH);
+        add(totalPanel, BorderLayout.NORTH);
+    }
+
+private void updateTotal() {
+    int total = 0;
+    for (int i = 0; i < cartModel.getRowCount(); i++) {
+        total += Integer.parseInt(cartModel.getValueAt(i, 2).toString());
+    }
+    totalLabel.setText("Tổng tiền: " + total + " VNĐ");
+}
+
+public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            SalesApp app = new SalesApp();
+            app.setVisible(true);
+        });
+    }
+
