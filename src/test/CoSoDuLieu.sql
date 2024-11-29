@@ -23,3 +23,4 @@ select * from NhanVien
 select * from NhanVien where ten = 'Viet Anh';
 select * from NhanVien LIMIT 5;
 select ten from KhachHang LIMIT 10;
+select Ma from NhanVien where ten = 'Viet Anh';
