@@ -20,5 +20,5 @@ INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283');
 
 select * from NhanVien
-
 select * from NhanVien where ten = 'Viet Anh';
+select * from NhanVien LIMIT 5;

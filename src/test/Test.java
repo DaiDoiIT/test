@@ -70,9 +70,8 @@ public class Test {
         System.out.println("Lê Tuấn Anh");
         System.out.println("Nguyễn Thái An");
         System.out.println("Lần thứ 2");
-        int a = 4;
-        System.out.println(a + "là một số");
-        System.out.println("A commit");
+        
+
     }
 
 }
