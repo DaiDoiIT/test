@@ -561,6 +561,27 @@ public SalesApp() {
         add(addToCartButton, BorderLayout.SOUTH);
         add(totalPanel, BorderLayout.NORTH);
     }
+    
+    System.out.println("Lê Tuấn Anh");
+    ArrayList<String> students = new ArrayList<>();
+
+        // Thêm sinh viên vào danh sách
+        students.add("Nguyễn Văn A");
+        students.add("Trần Thị B");
+        students.add("Lê Văn C");
+
+        // In danh sách sinh viên
+        System.out.println("Danh sách sinh viên:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
+
+        // Xóa một sinh viên
+        students.remove("Trần Thị B");
+        System.out.println("\nDanh sách sau khi xóa:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
 
 private void updateTotal() {
     int total = 0;
