@@ -6,6 +6,7 @@ package test;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 /**
  *
@@ -63,6 +64,47 @@ public class Test {
 
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
+
+
+        // Tạo khung cửa sổ (frame)
+        JFrame frame = new JFrame("Ứng dụng Chào Mừng");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 250);
+
+        // Tạo một bảng điều khiển (panel) để chứa các thành phần
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3, 2));
+
+        // Tạo các thành phần giao diện
+        JLabel nameLabel = new JLabel("Nhập tên của bạn:");
+        JTextField nameField = new JTextField(20);
+        JButton greetButton = new JButton("Chào mừng");
+        JLabel greetingLabel = new JLabel("", JLabel.CENTER);
+
+        // Thêm các thành phần vào bảng điều khiển
+        panel.add(nameLabel);
+        panel.add(nameField);
+        panel.add(greetButton);
+        panel.add(greetingLabel);
+
+        // Thêm bảng điều khiển vào cửa sổ
+        frame.add(panel);
+
+        // Định nghĩa hành động khi nút "Chào mừng" được nhấn
+        greetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = nameField.getText(); // Lấy tên từ ô văn bản
+                if (!name.isEmpty()) {
+                    greetingLabel.setText("Chào mừng, " + name + "!");
+                } else {
+                    greetingLabel.setText("Vui lòng nhập tên.");
+                }
+            }
+        });
+
+        // Hiển thị cửa sổ
+        frame.setVisible(true);
     }
     
 }
