@@ -8,18 +8,147 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
+import javax.swing.table.DefaultTableModel;
 
 import java.util.Scanner;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
  *
  * @author vanh
  */
+public class SalesSystemGUI {
+    private JFrame frame;
+    private JTable productTable;
+    private JTable cartTable;
+    private JLabel totalLabel;
+    private DefaultTableModel cartModel;
+    private double totalAmount = 0;
+
+    public SalesSystemGUI() {
+        // Tạo frame chính
+        frame = new JFrame("Hệ Thống Bán Hàng");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
+
+        // Panel sản phẩm
+        JPanel productPanel = new JPanel(new BorderLayout());
+        productPanel.setBorder(BorderFactory.createTitledBorder("Danh Sách Sản Phẩm"));
+
+        String[] productColumns = {"ID", "Tên Sản Phẩm", "Giá"};
+        Object[][] productData = {
+                {"1", "Sản phẩm A", 100000},
+                {"2", "Sản phẩm B", 200000},
+                {"3", "Sản phẩm C", 300000},
+                {"4", "Sản phẩm D", 150000}
+        };
+
+        DefaultTableModel productModel = new DefaultTableModel(productData, productColumns);
+        productTable = new JTable(productModel);
+        productPanel.add(new JScrollPane(productTable), BorderLayout.CENTER);
+
+        JButton addToCartButton = new JButton("Thêm vào giỏ hàng");
+        productPanel.add(addToCartButton, BorderLayout.SOUTH);
+
+        // Panel giỏ hàng
+        JPanel cartPanel = new JPanel(new BorderLayout());
+        cartPanel.setBorder(BorderFactory.createTitledBorder("Giỏ Hàng"));
+
+        String[] cartColumns = {"Tên Sản Phẩm", "Giá", "Số Lượng", "Tổng Cộng"};
+        cartModel = new DefaultTableModel(null, cartColumns);
+        cartTable = new JTable(cartModel);
+        cartPanel.add(new JScrollPane(cartTable), BorderLayout.CENTER);
+
+        JPanel cartBottomPanel = new JPanel(new BorderLayout());
+        totalLabel = new JLabel("Tổng Tiền: 0 VND");
+        totalLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        cartBottomPanel.add(totalLabel, BorderLayout.WEST);
+
+        JButton checkoutButton = new JButton("Thanh Toán");
+        cartBottomPanel.add(checkoutButton, BorderLayout.EAST);
+        cartPanel.add(cartBottomPanel, BorderLayout.SOUTH);
+
+        // Thêm các panel vào frame
+        frame.add(productPanel, BorderLayout.WEST);
+        frame.add(cartPanel, BorderLayout.CENTER);
+
+        // Xử lý sự kiện
+        addToCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = productTable.getSelectedRow();
+                if (selectedRow >= 0) {
+                    String productName = productTable.getValueAt(selectedRow, 1).toString();
+                    double price = Double.parseDouble(productTable.getValueAt(selectedRow, 2).toString());
+                    addToCart(productName, price);
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Vui lòng chọn sản phẩm!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        checkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cartModel.getRowCount() > 0) {
+                    JOptionPane.showMessageDialog(frame, "Thanh toán thành công! Tổng số tiền: " + totalAmount + " VND", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    cartModel.setRowCount(0);
+                    totalAmount = 0;
+                    totalLabel.setText("Tổng Tiền: 0 VND");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Giỏ hàng trống!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        // Hiển thị giao diện
+        frame.setVisible(true);
+    }
+
+    private void addToCart(String productName, double price) {
+        boolean productExists = false;
+
+        for (int i = 0; i < cartModel.getRowCount(); i++) {
+            if (cartModel.getValueAt(i, 0).equals(productName)) {
+                int quantity = Integer.parseInt(cartModel.getValueAt(i, 2).toString());
+                cartModel.setValueAt(quantity + 1, i, 2);
+                cartModel.setValueAt((quantity + 1) * price, i, 3);
+                productExists = true;
+                break;
+            }
+        }
+
+        if (!productExists) {
+            cartModel.addRow(new Object[]{productName, price, 1, price});
+        }
+
+        totalAmount += price;
+        totalLabel.setText("Tổng Tiền: " + totalAmount + " VND");
+    }
+    public static void main(String[] args) {
+        new SalesSystemGUI();
+    }
+}
 public class Test {
+
     private String id;
 
     @NotBlank(message = "Name cannot be blank")
@@ -158,7 +287,7 @@ public class Test {
 
 
         // TODO code application logic here
-        Scanner scanner = new Scanner(System.in);
+        
 
 
         System.out.print("Nhập số thứ nhất: ");
@@ -215,6 +344,14 @@ public class Test {
 
         // Đóng Scanner để tránh rò rỉ tài nguyên
         scanner.close();
+
+        
+
+           
+
+       }
+         
+
            System.out.println(number + " là số lẻ.");
        }
 
@@ -222,11 +359,36 @@ public class Test {
         for (int i = 1; i <= 10; i++) {
             System.out.println(i);
         }
-        
+
+
+
+    }
+
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
         System.out.println("Nguyễn Thái An");
         System.out.println("Lần thứ 2");
+        String fileName = "example.txt";
+        String content = "Xin chào, đây là nội dung được ghi vào file.";
+
+        // Ghi vào file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+        } catch (IOException e) {
+            System.out.println("Lỗi khi ghi file: " + e.getMessage());
+        }
+
+        // Đọc từ file
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("Nội dung trong file: " + line);
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        }      
+
+        int a = 4;
         System.out.println(a + "là một số");
         System.out.println("A commit");
         System.out.println("Phép toán: 1 + 1 = 2");
@@ -238,5 +400,147 @@ public class Test {
         System.out.println("An");
     }
 
+ 
+}
+
+
+public class OrderController {
+
+    private final Map<Integer, Order> orders = new HashMap<>();
+    private int currentId = 1;
+
+    // Create Order
     
 
+    // Get Order by ID
+    
+
+    // Update Order
+    
+
+    // Delete Order
+    
+    
+
+    // List All Orders
+    
+   
+
+    // Order class (inner class for simplicity)
+    static class Order {
+        private int id;
+        private String customerName;
+        private double totalAmount;
+
+        // Getters and Setters
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getCustomerName() {
+            return customerName;
+        }
+
+        public void setCustomerName(String customerName) {
+            this.customerName = customerName;
+        }
+
+        public double getTotalAmount() {
+            return totalAmount;
+        }
+
+        public void setTotalAmount(double totalAmount) {
+            this.totalAmount = totalAmount;
+        }
+    }
+}
+
+private JTable productTable;
+private DefaultTableModel cartModel;
+private JLabel totalLabel;
+
+public SalesApp() {
+        setTitle("Giao diện Bán hàng");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // Tạo bảng sản phẩm
+        String[] productColumns = {"ID", "Tên sản phẩm", "Giá"};
+        Object[][] productData = {
+            {1, "Sản phẩm A", 50000},
+            {2, "Sản phẩm B", 75000},
+            {3, "Sản phẩm C", 100000}
+        };
+
+        JTable productTable = new JTable(productData, productColumns);
+        JScrollPane productScrollPane = new JScrollPane(productTable);
+
+        // Tạo bảng giỏ hàng
+        String[] cartColumns = {"Tên sản phẩm", "Số lượng", "Giá"};
+        cartModel = new DefaultTableModel(cartColumns, 0);
+        JTable cartTable = new JTable(cartModel);
+        JScrollPane cartScrollPane = new JScrollPane(cartTable);
+
+        // Khu vực tổng tiền
+        JPanel totalPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        totalLabel = new JLabel("Tổng tiền: 0 VNĐ");
+        totalPanel.add(totalLabel);
+
+        // Nút thêm vào giỏ hàng
+        JButton addToCartButton = new JButton("Thêm vào giỏ hàng");
+        addToCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = productTable.getSelectedRow();
+                if (selectedRow != -1) {
+                    String productName = productTable.getValueAt(selectedRow, 1).toString();
+                    int price = Integer.parseInt(productTable.getValueAt(selectedRow, 2).toString());
+                    String quantityStr = JOptionPane.showInputDialog("Nhập số lượng:");
+                    if (quantityStr != null && !quantityStr.isEmpty()) {
+                        try {
+                            int quantity = Integer.parseInt(quantityStr);
+                            int total = price * quantity;
+
+                            // Thêm sản phẩm vào giỏ hàng
+                            cartModel.addRow(new Object[]{productName, quantity, total});
+                            updateTotal();
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Số lượng không hợp lệ!");
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vui lòng chọn sản phẩm!");
+                }
+            }
+        });
+
+        // Thêm các thành phần vào giao diện
+        JPanel centerPanel = new JPanel(new GridLayout(1, 2));
+        centerPanel.add(productScrollPane);
+        centerPanel.add(cartScrollPane);
+
+        add(centerPanel, BorderLayout.CENTER);
+        add(addToCartButton, BorderLayout.SOUTH);
+        add(totalPanel, BorderLayout.NORTH);
+    }
+
+private void updateTotal() {
+    int total = 0;
+    for (int i = 0; i < cartModel.getRowCount(); i++) {
+        total += Integer.parseInt(cartModel.getValueAt(i, 2).toString());
+    }
+    totalLabel.setText("Tổng tiền: " + total + " VNĐ");
+}
+
+public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            SalesApp app = new SalesApp();
+            app.setVisible(true);
+        });
+    }
