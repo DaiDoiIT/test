@@ -29,3 +29,5 @@ select Ma from NhanVien where ten = 'Viet Anh';
 -- Token COMMENT
 select ten, KhachHang.ten from NhanVien AS NV
 GROUP BY KhachHang on KhachHang.ten = NV.ten;
+
+select * from KhachHang where MA = 'KH02';
