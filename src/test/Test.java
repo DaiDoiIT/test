@@ -529,6 +529,7 @@ public class OrderController {
         public void setTotalAmount(double totalAmount) {
             this.totalAmount = totalAmount;
         }
+        System.out.println("Viet Anh");
     }
 }
 
