@@ -15,7 +15,7 @@ create table KhachHang(
 
 INSERT INTO NhanVien VALUES
 ('Viet Anh', 'NV01', 0901923045);
-
+('An', 'NV02', 0905784923);
 INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283');
 
