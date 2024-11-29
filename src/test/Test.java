@@ -230,6 +230,11 @@ public class Test {
         System.out.println(a + "là một số");
         System.out.println("A commit");
         System.out.println("Phép toán: 1 + 1 = 2");
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < args.length; j++) {
+                System.out.println(j);
+            }
+        }
     }
 
     
