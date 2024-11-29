@@ -361,16 +361,14 @@ public class Test {
         }
 
 
-    }
 
-    
+    }
 
         System.out.println("A commit");
         System.out.println("Lê Tuấn Anh");
         System.out.println("Nguyễn Thái An");
         System.out.println("Lần thứ 2");
-
-         String fileName = "example.txt";
+        String fileName = "example.txt";
         String content = "Xin chào, đây là nội dung được ghi vào file.";
 
         // Ghi vào file
@@ -393,15 +391,16 @@ public class Test {
         int a = 4;
         System.out.println(a + "là một số");
         System.out.println("A commit");
+        System.out.println("Phép toán: 1 + 1 = 2");
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < args.length; j++) {
+                System.out.println(j);
+            }
+        }
+        System.out.println("An");
     }
 
-}
-
-    }
-
-    
-    }
-
+ 
 }
 
 
@@ -545,4 +544,3 @@ public static void main(String[] args) {
             app.setVisible(true);
         });
     }
-
