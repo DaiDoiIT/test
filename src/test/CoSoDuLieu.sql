@@ -31,3 +31,23 @@ select ten, KhachHang.ten from NhanVien AS NV
 GROUP BY KhachHang on KhachHang.ten = NV.ten;
 
 select * from KhachHang where MA = 'KH02';
+-- Thiết lập bảo mật
+SELECT session_id, encrypt_option 
+FROM sys.dm_exec_connections;
+
+-- Tạo server audit
+CREATE SERVER AUDIT AuditLog
+TO FILE (FILEPATH = 'C:\AuditLogs\', MAXSIZE = 10 MB, MAX_ROLLOVER_FILES = 10);
+
+-- Bật audit
+ALTER SERVER AUDIT AuditLog WITH (STATE = ON);
+
+-- Tạo audit specification cho các hành động cụ thể
+CREATE SERVER AUDIT SPECIFICATION AuditSpec
+FOR SERVER AUDIT AuditLog
+ADD (FAILED_LOGIN_GROUP),
+ADD (SUCCESSFUL_LOGIN_GROUP);
+
+-- Bật audit specification
+ALTER SERVER AUDIT SPECIFICATION AuditSpec WITH (STATE = ON);
+
