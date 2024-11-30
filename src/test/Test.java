@@ -150,6 +150,107 @@ public class SalesSystemGUI {
     public static void main(String[] args) {
         new SalesSystemGUI();
     }
+
+    class Student {
+    private String name;
+    private int age;
+    private ArrayList<Integer> grades;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+        this.grades = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void addGrade(int grade) {
+        grades.add(grade);
+    }
+
+    public double calculateAverageGrade() {
+        int sum = 0;
+        for (int grade : grades) {
+            sum += grade;
+        }
+        return grades.isEmpty() ? 0 : (double) sum / grades.size();
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grades: " + grades);
+        System.out.println("Average Grade: " + calculateAverageGrade());
+    }
+}
+public class StudentManagementSystem {
+    private static ArrayList<Student> students = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int choice;
+        do {
+            System.out.println("\nStudent Management System");
+            System.out.println("1. Add Student");
+            System.out.println("2. Show All Students");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();  // Consume newline
+
+            switch (choice) {
+                case 1:
+                    addStudent();
+                    break;
+                case 2:
+                    showAllStudents();
+                    break;
+                case 3:
+                    System.out.println("Exiting program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 3);
+    }
+}
+
+private static void addStudent() {
+        System.out.print("Enter student's name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter student's age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();  // Consume newline
+
+        Student student = new Student(name, age);
+
+        System.out.print("Enter number of grades: ");
+        int numGrades = scanner.nextInt();
+        for (int i = 0; i < numGrades; i++) {
+            System.out.print("Enter grade " + (i + 1) + ": ");
+            int grade = scanner.nextInt();
+            student.addGrade(grade);
+        }
+        students.add(student);
+        System.out.println("Student added successfully!");
+    }
+
+    private static void showAllStudents() {
+        if (students.isEmpty()) {
+            System.out.println("No students to display.");
+        } else {
+            for (Student student : students) {
+                student.displayInfo();
+                System.out.println();
+            }
+        }
+    }
 }
 public class Test {
 
