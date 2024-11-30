@@ -9,10 +9,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import javax.swing.table.DefaultTableModel;
 
 import java.util.Scanner;
 import javax.swing.*;
@@ -25,8 +32,174 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+public class SalesSystemGUI {
+    private JFrame frame;
+    private JTable productTable;
+    private JTable cartTable;
+    private JLabel totalLabel;
+    private DefaultTableModel cartModel;
+    private double totalAmount = 0;
+
+    public SalesSystemGUI() {
+        // Tạo frame chính
+        frame = new JFrame("Hệ Thống Bán Hàng");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
+
+        // Panel sản phẩm
+        JPanel productPanel = new JPanel(new BorderLayout());
+        productPanel.setBorder(BorderFactory.createTitledBorder("Danh Sách Sản Phẩm"));
+
+        String[] productColumns = {"ID", "Tên Sản Phẩm", "Giá"};
+        Object[][] productData = {
+                {"1", "Sản phẩm A", 100000},
+                {"2", "Sản phẩm B", 200000},
+                {"3", "Sản phẩm C", 300000},
+                {"4", "Sản phẩm D", 150000}
+        };
+
+        DefaultTableModel productModel = new DefaultTableModel(productData, productColumns);
+        productTable = new JTable(productModel);
+        productPanel.add(new JScrollPane(productTable), BorderLayout.CENTER);
+
+        JButton addToCartButton = new JButton("Thêm vào giỏ hàng");
+        productPanel.add(addToCartButton, BorderLayout.SOUTH);
+
+        // Panel giỏ hàng
+        JPanel cartPanel = new JPanel(new BorderLayout());
+        cartPanel.setBorder(BorderFactory.createTitledBorder("Giỏ Hàng"));
+
+        String[] cartColumns = {"Tên Sản Phẩm", "Giá", "Số Lượng", "Tổng Cộng"};
+        cartModel = new DefaultTableModel(null, cartColumns);
+        cartTable = new JTable(cartModel);
+        cartPanel.add(new JScrollPane(cartTable), BorderLayout.CENTER);
+
+        JPanel cartBottomPanel = new JPanel(new BorderLayout());
+        totalLabel = new JLabel("Tổng Tiền: 0 VND");
+        totalLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        cartBottomPanel.add(totalLabel, BorderLayout.WEST);
+
+        JButton checkoutButton = new JButton("Thanh Toán");
+        cartBottomPanel.add(checkoutButton, BorderLayout.EAST);
+        cartPanel.add(cartBottomPanel, BorderLayout.SOUTH);
+
+        // Thêm các panel vào frame
+        frame.add(productPanel, BorderLayout.WEST);
+        frame.add(cartPanel, BorderLayout.CENTER);
+
+        // Xử lý sự kiện
+        addToCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = productTable.getSelectedRow();
+                if (selectedRow >= 0) {
+                    String productName = productTable.getValueAt(selectedRow, 1).toString();
+                    double price = Double.parseDouble(productTable.getValueAt(selectedRow, 2).toString());
+                    addToCart(productName, price);
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Vui lòng chọn sản phẩm!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        checkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cartModel.getRowCount() > 0) {
+                    JOptionPane.showMessageDialog(frame, "Thanh toán thành công! Tổng số tiền: " + totalAmount + " VND", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    cartModel.setRowCount(0);
+                    totalAmount = 0;
+                    totalLabel.setText("Tổng Tiền: 0 VND");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Giỏ hàng trống!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        // Hiển thị giao diện
+        frame.setVisible(true);
+    }
+
+    private void addToCart(String productName, double price) {
+        boolean productExists = false;
+
+        for (int i = 0; i < cartModel.getRowCount(); i++) {
+            if (cartModel.getValueAt(i, 0).equals(productName)) {
+                int quantity = Integer.parseInt(cartModel.getValueAt(i, 2).toString());
+                cartModel.setValueAt(quantity + 1, i, 2);
+                cartModel.setValueAt((quantity + 1) * price, i, 3);
+                productExists = true;
+                break;
+            }
+        }
+
+        if (!productExists) {
+            cartModel.addRow(new Object[]{productName, price, 1, price});
+        }
+
+        totalAmount += price;
+        totalLabel.setText("Tổng Tiền: " + totalAmount + " VND");
+    }
+    public static void main(String[] args) {
+        new SalesSystemGUI();
+    }
+}
 public class Test {
 
+    private String id;
+
+    @NotBlank(message = "Name cannot be blank")
+    private String name;
+
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @Positive(message = "Age must be a positive number")
+    private int age;
+
+    // Constructors, Getters, and Setters
+    public User() {}
+
+    public User(String id, String name, String email, int age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -122,8 +295,6 @@ public class Test {
         System.out.println("JJJ");
         System.out.println("Đỗ Hồng Minh");
         
-    }
-
 
         int a = 10;
         int b = 5;
@@ -145,6 +316,16 @@ public class Test {
         frame.add(button);
         frame.add(label);
 
+
+        // In kết quả
+        System.out.println("Tổng: " + sum);
+        System.out.println("Hiệu: " + difference);
+        System.out.println("Tích: " + product);
+        System.out.println("Thương: " + quotient);
+        if (number % 2 == 0) {
+            System.out.println(number + " là số chẵn.");
+        }
+        else {
         // Hiển thị JFrame
         frame.setVisible(true);
 
@@ -161,19 +342,22 @@ public class Test {
 
         // Đóng Scanner để tránh rò rỉ tài nguyên
         scanner.close();
+
         
 
            
 
        }
+         
 
-}
+    }
 
 System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.println("Nguyễn Thái An");System.out.println("Lần thứ 2");
 
-}
+    }
 
-}
+    
+    }
 
 }
 
@@ -309,167 +493,3 @@ public SalesApp() {
             app.setVisible(true);
         });
     }
-
-    public class SumEvenNumbers {
-        public static void main(String[] args) {
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int sum = 0;
-
-            for (int number : numbers) {
-                if (number % 2 == 0) {
-                    sum += number;
-                }
-            }
-
-            System.out.println("Tổng các số chẵn trong mảng là: " + sum);
-        }
-    }
-
-    public class SumEvenNumbers {
-        public static void main(String[] args) {
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int sum = 0;
-
-            for (int number : numbers) {
-                if (number % 2 == 0) {
-                    sum += number;
-                }
-            }
-
-            System.out.println("Tổng các số chẵn trong mảng là: " + sum);
-        }
-    }
-
-    class Contact {
-        private String name;
-        private String phoneNumber;
-        private String email;
-
-        public Contact(String name, String phoneNumber, String email) {
-            this.name = name;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        @Override
-        public String toString() {
-            return "Name: " + name + ", Phone: " + phoneNumber + ", Email: " + email;
-        }
-    }
-
-    // Lớp ContactManager quản lý danh sách liên hệ
-    class ContactManager {
-        private ArrayList<Contact> contacts;
-
-        public ContactManager() {
-            this.contacts = new ArrayList<>();
-        }
-
-        // Thêm liên hệ mới
-        public void addContact(Contact contact) {
-            contacts.add(contact);
-            System.out.println("Liên hệ đã được thêm thành công!");
-        }
-
-        // Hiển thị tất cả liên hệ
-        public void displayContacts() {
-            if (contacts.isEmpty()) {
-                System.out.println("Không có liên hệ nào trong danh sách.");
-            } else {
-                System.out.println("Danh sách liên hệ:");
-                for (Contact contact : contacts) {
-                    System.out.println(contact);
-                }
-            }
-        }
-
-        // Tìm kiếm liên hệ theo tên
-        public void searchContact(String name) {
-            boolean found = false;
-            for (Contact contact : contacts) {
-                if (contact.getName().equalsIgnoreCase(name)) {
-                    System.out.println("Liên hệ tìm thấy: " + contact);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                System.out.println("Không tìm thấy liên hệ với tên: " + name);
-            }
-        }
-
-        // Xóa liên hệ theo tên
-        public void deleteContact(String name) {
-            boolean removed = contacts.removeIf(contact -> contact.getName().equalsIgnoreCase(name));
-            if (removed) {
-                System.out.println("Liên hệ đã được xóa thành công!");
-            } else {
-                System.out.println("Không tìm thấy liên hệ với tên: " + name);
-            }
-        }
-    }
-
-    // Chương trình chính
-public class ContactManagementSystem {
-    public static void main(String[] args) {
-        ContactManager manager = new ContactManager();
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\n--- Quản Lý Danh Bạ ---");
-            System.out.println("1. Thêm liên hệ");
-            System.out.println("2. Hiển thị danh sách liên hệ");
-            System.out.println("3. Tìm kiếm liên hệ");
-            System.out.println("4. Xóa liên hệ");
-            System.out.println("5. Thoát");
-            System.out.print("Lựa chọn của bạn: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Đọc dòng trống
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Nhập tên: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Nhập số điện thoại: ");
-                    String phoneNumber = scanner.nextLine();
-                    System.out.print("Nhập email: ");
-                    String email = scanner.nextLine();
-                    manager.addContact(new Contact(name, phoneNumber, email));
-                    break;
-                case 2:
-                    manager.displayContacts();
-                    break;
-                case 3:
-                    System.out.print("Nhập tên để tìm kiếm: ");
-                    String searchName = scanner.nextLine();
-                    manager.searchContact(searchName);
-                    break;
-                case 4:
-                    System.out.print("Nhập tên để xóa: ");
-                    String deleteName = scanner.nextLine();
-                    manager.deleteContact(deleteName);
-                    break;
-                case 5:
-                    System.out.println("Thoát chương trình.");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ, vui lòng thử lại!");
-            }
-        } while (choice != 5);
-
-        scanner.close();
-    }
-}
