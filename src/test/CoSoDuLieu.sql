@@ -51,3 +51,25 @@ ADD (SUCCESSFUL_LOGIN_GROUP);
 -- Bật audit specification
 ALTER SERVER AUDIT SPECIFICATION AuditSpec WITH (STATE = ON);
 
+-- Kiểm tra các truy vấn đang chạy
+SELECT session_id, status, command, blocking_session_id, wait_time, wait_type, last_wait_type, cpu_time, memory_usage
+FROM sys.dm_exec_requests;
+
+-- Kiểm tra lịch sử truy vấn
+SELECT TOP 10
+    qs.sql_handle,
+    qs.execution_count,
+    qs.total_worker_time AS CPUTime,
+    qs.total_elapsed_time AS ElapsedTime,
+    SUBSTRING(st.text, (qs.statement_start_offset / 2) + 1,
+    ((CASE qs.statement_end_offset
+          WHEN -1 THEN DATALENGTH(st.text)
+          ELSE qs.statement_end_offset
+      END - qs.statement_start_offset) / 2) + 1) AS QueryText
+FROM sys.dm_exec_query_stats qs
+CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) st
+ORDER BY qs.total_worker_time DESC;
+
+
+
+
