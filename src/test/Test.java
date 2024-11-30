@@ -286,3 +286,17 @@ public class Test {
         }
 
 }
+
+import javax.swing.JFrame;
+
+public class GameFrame extends JFrame {
+    public GameFrame() {
+        this.add(new GamePanel());
+        this.setTitle("Paddle and Ball");
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+    }
+}
