@@ -37,6 +37,26 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+public class CircleAreaCalculator {
+    public static void main(String[] args) {
+        // Tạo đối tượng Scanner để nhận dữ liệu đầu vào từ người dùng
+        Scanner scanner = new Scanner(System.in);
+
+        // Hỏi người dùng nhập bán kính
+        System.out.print("Nhập bán kính của hình tròn: ");
+        double radius = scanner.nextDouble();
+
+        // Công thức tính diện tích hình tròn
+        double area = Math.PI * Math.pow(radius, 2);
+
+        // In kết quả
+        System.out.println("Diện tích hình tròn với bán kính " + radius + " là: " + area);
+
+        // Đóng Scanner
+        scanner.close();
+    }
+}
+
 public class SalesSystemGUI {
     private JFrame frame;
     private JTable productTable;
