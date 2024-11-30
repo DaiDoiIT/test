@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 /**
  *
@@ -166,14 +168,21 @@ public class Test {
            
 
        }
+         
 
-}
+    }
 
-System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.println("Nguyễn Thái An");System.out.println("Lần thứ 2");
+    
 
-}
+        System.out.println("A commit");
+        System.out.println("Lê Tuấn Anh");
+        System.out.println("Nguyễn Thái An");
+        System.out.println("Lần thứ 2");
 
-}
+    }
+
+    
+    }
 
 }
 
@@ -183,14 +192,21 @@ public class OrderController {
     private int currentId = 1;
 
     // Create Order
+    
 
     // Get Order by ID
+    
 
     // Update Order
+    
 
     // Delete Order
+    
+    
 
     // List All Orders
+    
+   
 
     // Order class (inner class for simplicity)
     static class Order {
@@ -222,11 +238,12 @@ public class OrderController {
         public void setTotalAmount(double totalAmount) {
             this.totalAmount = totalAmount;
         }
-    }}
+    }
+}
 
-    private JTable productTable;
-    private DefaultTableModel cartModel;
-    private JLabel totalLabel;
+private JTable productTable;
+private DefaultTableModel cartModel;
+private JLabel totalLabel;
 
 public SalesApp() {
         setTitle("Giao diện Bán hàng");
@@ -295,47 +312,20 @@ public SalesApp() {
         add(totalPanel, BorderLayout.NORTH);
     }
 
-    private void updateTotal() {
-        int total = 0;
-        for (int i = 0; i < cartModel.getRowCount(); i++) {
-            total += Integer.parseInt(cartModel.getValueAt(i, 2).toString());
-        }
-        totalLabel.setText("Tổng tiền: " + total + " VNĐ");
+private void updateTotal() {
+    int total = 0;
+    for (int i = 0; i < cartModel.getRowCount(); i++) {
+        total += Integer.parseInt(cartModel.getValueAt(i, 2).toString());
     }
+    totalLabel.setText("Tổng tiền: " + total + " VNĐ");
+}
 
-    public static void main(String[] args) {
+public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             SalesApp app = new SalesApp();
             app.setVisible(true);
         });
     }
 
-    public class SumEvenNumbers {
-        public static void main(String[] args) {
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int sum = 0;
 
-            for (int number : numbers) {
-                if (number % 2 == 0) {
-                    sum += number;
-                }
-            }
-
-            System.out.println("Tổng các số chẵn trong mảng là: " + sum);
-        }
-    }
-
-public class SumEvenNumbers {
-    public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int sum = 0;
-
-        for (int number : numbers) {
-            if (number % 2 == 0) {
-                sum += number;
-            }
-        }
-
-        System.out.println("Tổng các số chẵn trong mảng là: " + sum);
-    }
-}
+    
