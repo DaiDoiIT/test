@@ -3,19 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package test;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import javax.swing.table.DefaultTableModel;
 
 import java.util.Scanner;
 import javax.swing.*;
@@ -28,27 +32,6 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
-
-public class CircleAreaCalculator {
-    public static void main(String[] args) {
-        // Tạo đối tượng Scanner để nhận dữ liệu đầu vào từ người dùng
-        Scanner scanner = new Scanner(System.in);
-
-        // Hỏi người dùng nhập bán kính
-        System.out.print("Nhập bán kính của hình tròn: ");
-        double radius = scanner.nextDouble();
-
-        // Công thức tính diện tích hình tròn
-        double area = Math.PI * Math.pow(radius, 2);
-
-        // In kết quả
-        System.out.println("Diện tích hình tròn với bán kính " + radius + " là: " + area);
-
-        // Đóng Scanner
-        scanner.close();
-    }
-}
-
 public class SalesSystemGUI {
     private JFrame frame;
     private JTable productTable;
@@ -162,9 +145,61 @@ public class SalesSystemGUI {
         new SalesSystemGUI();
     }
 }
-
 public class Test {
 
+    private String id;
+
+    @NotBlank(message = "Name cannot be blank")
+    private String name;
+
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @Positive(message = "Age must be a positive number")
+    private int age;
+
+    // Constructors, Getters, and Setters
+    public User() {}
+
+    public User(String id, String name, String email, int age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -260,8 +295,6 @@ public class Test {
         System.out.println("JJJ");
         System.out.println("Đỗ Hồng Minh");
         
-    }
-
 
         int a = 10;
         int b = 5;
@@ -283,6 +316,16 @@ public class Test {
         frame.add(button);
         frame.add(label);
 
+
+        // In kết quả
+        System.out.println("Tổng: " + sum);
+        System.out.println("Hiệu: " + difference);
+        System.out.println("Tích: " + product);
+        System.out.println("Thương: " + quotient);
+        if (number % 2 == 0) {
+            System.out.println(number + " là số chẵn.");
+        }
+        else {
         // Hiển thị JFrame
         frame.setVisible(true);
 
@@ -299,103 +342,22 @@ public class Test {
 
         // Đóng Scanner để tránh rò rỉ tài nguyên
         scanner.close();
+
         
 
            
 
        }
+         
 
-
-}
+    }
 
 System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.println("Nguyễn Thái An");System.out.println("Lần thứ 2");
 
-}
-
-
-         
-
-           System.out.println(number + " là số lẻ.");
-       }
-
-        System.out.println("JJJ");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
-        }
-
-        JFrame frame = new JFrame("Giao Diện Đơn Giản");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
-
-        // Tạo một nhãn (label)
-        JLabel label = new JLabel("Chào mừng bạn đến với Java GUI!", JLabel.CENTER);
-
-        // Tạo một nút (button)
-        JButton button = new JButton("Nhấn vào đây");
-
-        // Định nghĩa hành động khi nút được nhấn
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Cập nhật nhãn khi nút được nhấn
-                label.setText("Nút đã được nhấn!");
-            }
-        });
-
-        // Đặt bố cục và thêm các thành phần vào khung
-        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.add(label);
-        frame.add(button);
-
-        // Hiển thị cửa sổ
-        frame.setVisible(true);
-
-        System.out.println("A commit");
-        System.out.println("Lê Tuấn Anh");
-
-
     }
 
-        System.out.println("A commit");
-        System.out.println("Lê Tuấn Anh");
-        System.out.println("Nguyễn Thái An");
-        System.out.println("Lần thứ 2");
-        String fileName = "example.txt";
-        String content = "Xin chào, đây là nội dung được ghi vào file.";
-
-        // Ghi vào file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(content);
-        } catch (IOException e) {
-            System.out.println("Lỗi khi ghi file: " + e.getMessage());
-        }
-
-        // Đọc từ file
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println("Nội dung trong file: " + line);
-            }
-        } catch (IOException e) {
-            System.out.println("Lỗi khi đọc file: " + e.getMessage());
-        }      
-
-        int a = 4;
-        System.out.println(a + "là một số");
-        System.out.println("A commit");
-        System.out.println("Phép toán: 1 + 1 = 2");
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < args.length; j++) {
-                System.out.println(j);
-            }
-        }
-        System.out.println("An");
-        
+    
     }
-
- 
-
-}
 
 }
 
@@ -516,27 +478,6 @@ public SalesApp() {
         add(addToCartButton, BorderLayout.SOUTH);
         add(totalPanel, BorderLayout.NORTH);
     }
-    
-    System.out.println("Lê Tuấn Anh");
-    ArrayList<String> students = new ArrayList<>();
-
-        // Thêm sinh viên vào danh sách
-        students.add("Nguyễn Văn A");
-        students.add("Trần Thị B");
-        students.add("Lê Văn C");
-
-        // In danh sách sinh viên
-        System.out.println("Danh sách sinh viên:");
-        for (String student : students) {
-            System.out.println("- " + student);
-        }
-
-        // Xóa một sinh viên
-        students.remove("Trần Thị B");
-        System.out.println("\nDanh sách sau khi xóa:");
-        for (String student : students) {
-            System.out.println("- " + student);
-        }
 
     private void updateTotal() {
         int total = 0;
@@ -552,169 +493,3 @@ public SalesApp() {
             app.setVisible(true);
         });
     }
-
-
-    public class SumEvenNumbers {
-        public static void main(String[] args) {
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int sum = 0;
-
-            for (int number : numbers) {
-                if (number % 2 == 0) {
-                    sum += number;
-                }
-            }
-
-            System.out.println("Tổng các số chẵn trong mảng là: " + sum);
-        }
-    }
-
-    public class SumEvenNumbers {
-        public static void main(String[] args) {
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int sum = 0;
-
-            for (int number : numbers) {
-                if (number % 2 == 0) {
-                    sum += number;
-                }
-            }
-
-            System.out.println("Tổng các số chẵn trong mảng là: " + sum);
-        }
-    }
-
-    class Contact {
-        private String name;
-        private String phoneNumber;
-        private String email;
-
-        public Contact(String name, String phoneNumber, String email) {
-            this.name = name;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        @Override
-        public String toString() {
-            return "Name: " + name + ", Phone: " + phoneNumber + ", Email: " + email;
-        }
-    }
-
-    // Lớp ContactManager quản lý danh sách liên hệ
-    class ContactManager {
-        private ArrayList<Contact> contacts;
-
-        public ContactManager() {
-            this.contacts = new ArrayList<>();
-        }
-
-        // Thêm liên hệ mới
-        public void addContact(Contact contact) {
-            contacts.add(contact);
-            System.out.println("Liên hệ đã được thêm thành công!");
-        }
-
-        // Hiển thị tất cả liên hệ
-        public void displayContacts() {
-            if (contacts.isEmpty()) {
-                System.out.println("Không có liên hệ nào trong danh sách.");
-            } else {
-                System.out.println("Danh sách liên hệ:");
-                for (Contact contact : contacts) {
-                    System.out.println(contact);
-                }
-            }
-        }
-
-        // Tìm kiếm liên hệ theo tên
-        public void searchContact(String name) {
-            boolean found = false;
-            for (Contact contact : contacts) {
-                if (contact.getName().equalsIgnoreCase(name)) {
-                    System.out.println("Liên hệ tìm thấy: " + contact);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                System.out.println("Không tìm thấy liên hệ với tên: " + name);
-            }
-        }
-
-        // Xóa liên hệ theo tên
-        public void deleteContact(String name) {
-            boolean removed = contacts.removeIf(contact -> contact.getName().equalsIgnoreCase(name));
-            if (removed) {
-                System.out.println("Liên hệ đã được xóa thành công!");
-            } else {
-                System.out.println("Không tìm thấy liên hệ với tên: " + name);
-            }
-        }
-    }
-
-    // Chương trình chính
-public class ContactManagementSystem {
-    public static void main(String[] args) {
-        ContactManager manager = new ContactManager();
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\n--- Quản Lý Danh Bạ ---");
-            System.out.println("1. Thêm liên hệ");
-            System.out.println("2. Hiển thị danh sách liên hệ");
-            System.out.println("3. Tìm kiếm liên hệ");
-            System.out.println("4. Xóa liên hệ");
-            System.out.println("5. Thoát");
-            System.out.print("Lựa chọn của bạn: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Đọc dòng trống
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Nhập tên: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Nhập số điện thoại: ");
-                    String phoneNumber = scanner.nextLine();
-                    System.out.print("Nhập email: ");
-                    String email = scanner.nextLine();
-                    manager.addContact(new Contact(name, phoneNumber, email));
-                    break;
-                case 2:
-                    manager.displayContacts();
-                    break;
-                case 3:
-                    System.out.print("Nhập tên để tìm kiếm: ");
-                    String searchName = scanner.nextLine();
-                    manager.searchContact(searchName);
-                    break;
-                case 4:
-                    System.out.print("Nhập tên để xóa: ");
-                    String deleteName = scanner.nextLine();
-                    manager.deleteContact(deleteName);
-                    break;
-                case 5:
-                    System.out.println("Thoát chương trình.");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ, vui lòng thử lại!");
-            }
-        } while (choice != 5);
-
-        scanner.close();
-    }
-}
-
