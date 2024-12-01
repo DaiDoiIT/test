@@ -241,7 +241,10 @@ private static void addStudent() {
         scanner.nextLine();  // Consume newline
 
         Student student = new Student(name, age);
+        System.out.print("Enter student's name: ");
 
+        System.out.print("Enter student's name: ");
+        System.out.print("Viet ANh");
         System.out.print("Enter number of grades: ");
         int numGrades = scanner.nextInt();
         for (int i = 0; i < numGrades; i++) {
