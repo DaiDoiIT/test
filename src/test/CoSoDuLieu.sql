@@ -70,6 +70,8 @@ FROM sys.dm_exec_query_stats qs
 CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) st
 ORDER BY qs.total_worker_time DESC;
 
+select ten, Ma from NhanVien;
+
 
 
 
