@@ -14,8 +14,9 @@ create table KhachHang(
 );
 
 INSERT INTO NhanVien VALUES
-('Viet Anh', 'NV01', 0901923045);
-('An', 'NV02', 0905784923);
+('Viet Anh', 'NV01', 0901923045),
+('An', 'NV02', 0905784923),
+('Binh','NV03',0192384726);
 INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283');
 ('Cao Nghia Hai', 'KH02', 0827394810, 'S019232');
@@ -71,6 +72,7 @@ CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) st
 ORDER BY qs.total_worker_time DESC;
 
 select ten, Ma from NhanVien;
+
 
 
 
