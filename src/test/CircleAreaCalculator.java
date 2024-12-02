@@ -3,12 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package test;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,36 +28,6 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
-
-
-public class SumCalculator {
-    public static void main(String[] args) {
-        // Tạo một đối tượng Scanner để đọc đầu vào từ người dùng
-        Scanner scanner = new Scanner(System.in);
-
-        // Yêu cầu người dùng nhập số N
-        System.out.print("Nhập một số nguyên dương N: ");
-        int N = scanner.nextInt();
-
-        // Kiểm tra xem N có hợp lệ không
-        if (N <= 0) {
-            System.out.println("Vui lòng nhập một số nguyên dương lớn hơn 0.");
-        } else {
-            int sum = 0;
-
-            // Tính tổng các số từ 1 đến N
-            for (int i = 1; i <= N; i++) {
-                sum += i;
-            }
-
-            // Hiển thị kết quả
-            System.out.println("Tổng các số từ 1 đến " + N + " là: " + sum);
-        }
-
-        // Đóng Scanner
-        scanner.close();
-    }
-}
 
 public class CircleAreaCalculator {
     public static void main(String[] args) {
@@ -194,112 +161,7 @@ public class SalesSystemGUI {
     public static void main(String[] args) {
         new SalesSystemGUI();
     }
-
-    class Student {
-    private String name;
-    private int age;
-    private ArrayList<Integer> grades;
-
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-        this.grades = new ArrayList<>();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void addGrade(int grade) {
-        grades.add(grade);
-    }
-
-    public double calculateAverageGrade() {
-        int sum = 0;
-        for (int grade : grades) {
-            sum += grade;
-        }
-        return grades.isEmpty() ? 0 : (double) sum / grades.size();
-    }
-
-    public void displayInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Grades: " + grades);
-        System.out.println("Average Grade: " + calculateAverageGrade());
-    }
 }
-public class StudentManagementSystem {
-    private static ArrayList<Student> students = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        int choice;
-        do {
-            System.out.println("\nStudent Management System");
-            System.out.println("1. Add Student");
-            System.out.println("2. Show All Students");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addStudent();
-                    break;
-                case 2:
-                    showAllStudents();
-                    break;
-                case 3:
-                    System.out.println("Exiting program...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        } while (choice != 3);
-    }
-}
-
-private static void addStudent() {
-        System.out.print("Enter student's name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter student's age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();  // Consume newline
-
-        Student student = new Student(name, age);
-        System.out.print("Enter student's name: ");
-
-        System.out.print("Enter student's name: ");
-        System.out.print("Viet ANh");
-        System.out.print("Enter number of grades: ");
-        int numGrades = scanner.nextInt();
-        for (int i = 0; i < numGrades; i++) {
-            System.out.print("Enter grade " + (i + 1) + ": ");
-            int grade = scanner.nextInt();
-            student.addGrade(grade);
-        }
-        students.add(student);
-        System.out.println("Student added successfully!");
-    }
-
-    private static void showAllStudents() {
-        if (students.isEmpty()) {
-            System.out.println("No students to display.");
-        } else {
-            for (Student student : students) {
-                student.displayInfo();
-                System.out.println();
-            }
-        }
-    }
-}
-
 
 public class Test {
 
@@ -443,12 +305,12 @@ public class Test {
 
        }
 
+
 }
 
 System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.println("Nguyễn Thái An");System.out.println("Lần thứ 2");
 
 }
-
 
 
          
@@ -492,46 +354,6 @@ System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.p
         System.out.println("Lê Tuấn Anh");
 
 
-        // Tạo khung cửa sổ (frame)
-        JFrame frame = new JFrame("Ứng dụng Chào Mừng");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 250);
-
-        // Tạo một bảng điều khiển (panel) để chứa các thành phần
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
-
-        // Tạo các thành phần giao diện
-        JLabel nameLabel = new JLabel("Nhập tên của bạn:");
-        JTextField nameField = new JTextField(20);
-        JButton greetButton = new JButton("Chào mừng");
-        JLabel greetingLabel = new JLabel("", JLabel.CENTER);
-
-        // Thêm các thành phần vào bảng điều khiển
-        panel.add(nameLabel);
-        panel.add(nameField);
-        panel.add(greetButton);
-        panel.add(greetingLabel);
-
-        // Thêm bảng điều khiển vào cửa sổ
-        frame.add(panel);
-
-        // Định nghĩa hành động khi nút "Chào mừng" được nhấn
-        greetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String name = nameField.getText(); // Lấy tên từ ô văn bản
-                if (!name.isEmpty()) {
-                    greetingLabel.setText("Chào mừng, " + name + "!");
-                } else {
-                    greetingLabel.setText("Vui lòng nhập tên.");
-                }
-            }
-        });
-
-        // Hiển thị cửa sổ
-        frame.setVisible(true);
-
     }
 
         System.out.println("A commit");
@@ -572,7 +394,6 @@ System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.p
     }
 
  
-
 
 }
 
@@ -623,13 +444,7 @@ public class OrderController {
         public void setTotalAmount(double totalAmount) {
             this.totalAmount = totalAmount;
         }
-
-        System.out.println("Viet Anh");
-    }
-}
-
     }}
-
 
     private JTable productTable;
     private DefaultTableModel cartModel;
@@ -701,6 +516,27 @@ public SalesApp() {
         add(addToCartButton, BorderLayout.SOUTH);
         add(totalPanel, BorderLayout.NORTH);
     }
+    
+    System.out.println("Lê Tuấn Anh");
+    ArrayList<String> students = new ArrayList<>();
+
+        // Thêm sinh viên vào danh sách
+        students.add("Nguyễn Văn A");
+        students.add("Trần Thị B");
+        students.add("Lê Văn C");
+
+        // In danh sách sinh viên
+        System.out.println("Danh sách sinh viên:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
+
+        // Xóa một sinh viên
+        students.remove("Trần Thị B");
+        System.out.println("\nDanh sách sau khi xóa:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
 
     private void updateTotal() {
         int total = 0;
@@ -716,6 +552,7 @@ public SalesApp() {
             app.setVisible(true);
         });
     }
+
 
     public class SumEvenNumbers {
         public static void main(String[] args) {
@@ -880,42 +717,3 @@ public class ContactManagementSystem {
         scanner.close();
     }
 }
-
-
-public class SumTwoNumbers {
-    public static void main(String[] args) {
-        // Tạo một đối tượng Scanner để nhận dữ liệu nhập từ người dùng
-        Scanner scanner = new Scanner(System.in);
-
-        // Nhập số nguyên thứ nhất
-        System.out.print("Nhập số nguyên thứ nhất: ");
-        int num1 = scanner.nextInt();
-
-        // Nhập số nguyên thứ hai
-        System.out.print("Nhập số nguyên thứ hai: ");
-        int num2 = scanner.nextInt();
-
-        // Tính tổng hai số
-        int sum = num1 + num2;
-
-        // Hiển thị kết quả
-        System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
-
-        // Đóng scanner
-        scanner.close();
-
-import javax.swing.JFrame;
-
-public class GameFrame extends JFrame {
-    public GameFrame() {
-        this.add(new GamePanel());
-        this.setTitle("Paddle and Ball");
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
-        this.setVisible(true);
-        this.setLocationRelativeTo(null);
-
-    }
-}
-
