@@ -30,6 +30,35 @@ import java.awt.event.ActionListener;
  * @author vanh
  */
 
+public class SumCalculator {
+    public static void main(String[] args) {
+        // Tạo một đối tượng Scanner để đọc đầu vào từ người dùng
+        Scanner scanner = new Scanner(System.in);
+
+        // Yêu cầu người dùng nhập số N
+        System.out.print("Nhập một số nguyên dương N: ");
+        int N = scanner.nextInt();
+
+        // Kiểm tra xem N có hợp lệ không
+        if (N <= 0) {
+            System.out.println("Vui lòng nhập một số nguyên dương lớn hơn 0.");
+        } else {
+            int sum = 0;
+
+            // Tính tổng các số từ 1 đến N
+            for (int i = 1; i <= N; i++) {
+                sum += i;
+            }
+
+            // Hiển thị kết quả
+            System.out.println("Tổng các số từ 1 đến " + N + " là: " + sum);
+        }
+
+        // Đóng Scanner
+        scanner.close();
+    }
+}
+
 public class CircleAreaCalculator {
     public static void main(String[] args) {
         // Tạo đối tượng Scanner để nhận dữ liệu đầu vào từ người dùng
