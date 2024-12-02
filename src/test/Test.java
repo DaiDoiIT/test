@@ -58,7 +58,8 @@ public class SalesSystemGUI {
                 {"1", "Sản phẩm A", 100000},
                 {"2", "Sản phẩm B", 200000},
                 {"3", "Sản phẩm C", 300000},
-                {"4", "Sản phẩm D", 150000}
+                {"4", "Sản phẩm D", 150000},
+                {"5", "Sản phẩm E", 170000}
         };
 
         DefaultTableModel productModel = new DefaultTableModel(productData, productColumns);
