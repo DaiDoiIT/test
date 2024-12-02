@@ -473,3 +473,27 @@ public class ContactManagementSystem {
         scanner.close();
     }
 }
+
+public class SumTwoNumbers {
+    public static void main(String[] args) {
+        // Tạo một đối tượng Scanner để nhận dữ liệu nhập từ người dùng
+        Scanner scanner = new Scanner(System.in);
+
+        // Nhập số nguyên thứ nhất
+        System.out.print("Nhập số nguyên thứ nhất: ");
+        int num1 = scanner.nextInt();
+
+        // Nhập số nguyên thứ hai
+        System.out.print("Nhập số nguyên thứ hai: ");
+        int num2 = scanner.nextInt();
+
+        // Tính tổng hai số
+        int sum = num1 + num2;
+
+        // Hiển thị kết quả
+        System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
+
+        // Đóng scanner
+        scanner.close();
+    }
+}
