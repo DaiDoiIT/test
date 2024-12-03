@@ -5,12 +5,6 @@
 package test;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.*;
-
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +25,7 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+
 
 
 public class SumCalculator {
@@ -450,131 +445,6 @@ System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.p
 
 }
 
-
-
-         
-
-           System.out.println(number + " là số lẻ.");
-       }
-
-        System.out.println("JJJ");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
-        }
-
-        JFrame frame = new JFrame("Giao Diện Đơn Giản");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
-
-        // Tạo một nhãn (label)
-        JLabel label = new JLabel("Chào mừng bạn đến với Java GUI!", JLabel.CENTER);
-
-        // Tạo một nút (button)
-        JButton button = new JButton("Nhấn vào đây");
-
-        // Định nghĩa hành động khi nút được nhấn
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Cập nhật nhãn khi nút được nhấn
-                label.setText("Nút đã được nhấn!");
-            }
-        });
-
-        // Đặt bố cục và thêm các thành phần vào khung
-        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.add(label);
-        frame.add(button);
-
-        // Hiển thị cửa sổ
-        frame.setVisible(true);
-
-        System.out.println("A commit");
-        System.out.println("Lê Tuấn Anh");
-
-
-        // Tạo khung cửa sổ (frame)
-        JFrame frame = new JFrame("Ứng dụng Chào Mừng");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 250);
-
-        // Tạo một bảng điều khiển (panel) để chứa các thành phần
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
-
-        // Tạo các thành phần giao diện
-        JLabel nameLabel = new JLabel("Nhập tên của bạn:");
-        JTextField nameField = new JTextField(20);
-        JButton greetButton = new JButton("Chào mừng");
-        JLabel greetingLabel = new JLabel("", JLabel.CENTER);
-
-        // Thêm các thành phần vào bảng điều khiển
-        panel.add(nameLabel);
-        panel.add(nameField);
-        panel.add(greetButton);
-        panel.add(greetingLabel);
-
-        // Thêm bảng điều khiển vào cửa sổ
-        frame.add(panel);
-
-        // Định nghĩa hành động khi nút "Chào mừng" được nhấn
-        greetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String name = nameField.getText(); // Lấy tên từ ô văn bản
-                if (!name.isEmpty()) {
-                    greetingLabel.setText("Chào mừng, " + name + "!");
-                } else {
-                    greetingLabel.setText("Vui lòng nhập tên.");
-                }
-            }
-        });
-
-        // Hiển thị cửa sổ
-        frame.setVisible(true);
-
-    }
-
-        System.out.println("A commit");
-        System.out.println("Lê Tuấn Anh");
-        System.out.println("Nguyễn Thái An");
-        System.out.println("Lần thứ 2");
-        String fileName = "example.txt";
-        String content = "Xin chào, đây là nội dung được ghi vào file.";
-
-        // Ghi vào file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(content);
-        } catch (IOException e) {
-            System.out.println("Lỗi khi ghi file: " + e.getMessage());
-        }
-
-        // Đọc từ file
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println("Nội dung trong file: " + line);
-            }
-        } catch (IOException e) {
-            System.out.println("Lỗi khi đọc file: " + e.getMessage());
-        }      
-
-        int a = 4;
-        System.out.println(a + "là một số");
-        System.out.println("A commit");
-        System.out.println("Phép toán: 1 + 1 = 2");
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < args.length; j++) {
-                System.out.println(j);
-            }
-        }
-        System.out.println("An");
-        
-    }
-
- 
-
-
 }
 
 }
@@ -624,13 +494,7 @@ public class OrderController {
         public void setTotalAmount(double totalAmount) {
             this.totalAmount = totalAmount;
         }
-
-        System.out.println("Viet Anh");
-    }
-}
-
     }}
-
 
     private JTable productTable;
     private DefaultTableModel cartModel;
@@ -883,7 +747,6 @@ public class ContactManagementSystem {
     }
 }
 
-
 public class SumTwoNumbers {
     public static void main(String[] args) {
         // Tạo một đối tượng Scanner để nhận dữ liệu nhập từ người dùng
@@ -905,19 +768,20 @@ public class SumTwoNumbers {
 
         // Đóng scanner
         scanner.close();
+    }
+}
 
-import javax.swing.JFrame;
 
-public class GameFrame extends JFrame {
-    public GameFrame() {
-        this.add(new GamePanel());
-        this.setTitle("Paddle and Ball");
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
-        this.setVisible(true);
-        this.setLocationRelativeTo(null);
-
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        // Bảng cửu chương từ 1 đến 10
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Bảng cửu chương " + i + ":");
+            for (int j = 1; j <= 10; j++) {
+                System.out.println(i + " x " + j + " = " + (i * j));
+            }
+            System.out.println(); // Dòng trống giữa các bảng
+        }
     }
 }
 
@@ -928,3 +792,4 @@ public class HelloServlet extends HttpServlet {
         response.getWriter().println("<h1>Hello, World!</h1>");
     }
 }
+
