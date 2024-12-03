@@ -40,6 +40,21 @@ FROM sys.dm_exec_connections;
 
 SELECT * FROM NhanVien ASC;
 
+-- Cài đặt extension
+CREATE EXTENSION http_fdw;
+
+-- Tạo server cho HTTP API
+CREATE SERVER http_server
+FOREIGN DATA WRAPPER http_fdw
+OPTIONS (uri 'https://api.example.com');
+
+-- Tạo bảng ánh xạ dữ liệu
+CREATE FOREIGN TABLE api_data (
+    id INTEGER,
+    name TEXT
+) SERVER http_server OPTIONS (format 'json');
+
+
 
 
 
