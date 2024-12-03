@@ -54,6 +54,9 @@ CREATE FOREIGN TABLE api_data (
     name TEXT
 ) SERVER http_server OPTIONS (format 'json');
 
+UPDATE NhanVien
+SET ten = 'Nguyen Binh Khang' WHERE Ma = 'NV01'
+
 
 
 
