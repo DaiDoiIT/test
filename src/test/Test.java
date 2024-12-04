@@ -422,91 +422,197 @@ public SalesApp() {
     }
 
     // Chương trình chính
-public class ContactManagementSystem {
+    public class ContactManagementSystem {
+        public static void main(String[] args) {
+            ContactManager manager = new ContactManager();
+            Scanner scanner = new Scanner(System.in);
+            int choice;
+
+            do {
+                System.out.println("\n--- Quản Lý Danh Bạ ---");
+                System.out.println("1. Thêm liên hệ");
+                System.out.println("2. Hiển thị danh sách liên hệ");
+                System.out.println("3. Tìm kiếm liên hệ");
+                System.out.println("4. Xóa liên hệ");
+                System.out.println("5. Thoát");
+                System.out.print("Lựa chọn của bạn: ");
+                choice = scanner.nextInt();
+                scanner.nextLine(); // Đọc dòng trống
+
+                switch (choice) {
+                    case 1:
+                        System.out.print("Nhập tên: ");
+                        String name = scanner.nextLine();
+                        System.out.print("Nhập số điện thoại: ");
+                        String phoneNumber = scanner.nextLine();
+                        System.out.print("Nhập email: ");
+                        String email = scanner.nextLine();
+                        manager.addContact(new Contact(name, phoneNumber, email));
+                        break;
+                    case 2:
+                        manager.displayContacts();
+                        break;
+                    case 3:
+                        System.out.print("Nhập tên để tìm kiếm: ");
+                        String searchName = scanner.nextLine();
+                        manager.searchContact(searchName);
+                        break;
+                    case 4:
+                        System.out.print("Nhập tên để xóa: ");
+                        String deleteName = scanner.nextLine();
+                        manager.deleteContact(deleteName);
+                        break;
+                    case 5:
+                        System.out.println("Thoát chương trình.");
+                        break;
+                    default:
+                        System.out.println("Lựa chọn không hợp lệ, vui lòng thử lại!");
+                }
+            } while (choice != 5);
+
+            scanner.close();
+        }
+    }
+
+    public class SumTwoNumbers {
+        public static void main(String[] args) {
+            // Tạo một đối tượng Scanner để nhận dữ liệu nhập từ người dùng
+            Scanner scanner = new Scanner(System.in);
+
+            // Nhập số nguyên thứ nhất
+            System.out.print("Nhập số nguyên thứ nhất: ");
+            int num1 = scanner.nextInt();
+
+            // Nhập số nguyên thứ hai
+            System.out.print("Nhập số nguyên thứ hai: ");
+            int num2 = scanner.nextInt();
+
+            // Tính tổng hai số
+            int sum = num1 + num2;
+
+            // Hiển thị kết quả
+            System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
+
+            // Đóng scanner
+            scanner.close();
+        }
+    }
+
+    public class MultiplicationTable {
+        public static void main(String[] args) {
+            // Bảng cửu chương từ 1 đến 10
+            for (int i = 1; i <= 10; i++) {
+                System.out.println("Bảng cửu chương " + i + ":");
+                for (int j = 1; j <= 10; j++) {
+                    System.out.println(i + " x " + j + " = " + (i * j));
+                }
+                System.out.println(); // Dòng trống giữa các bảng
+            }
+        }
+    }
+
+    class Student {
+        private String name;
+        private int age;
+
+        // Constructor
+        public Student(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // Getter for name
+        public String getName() {
+            return name;
+        }
+
+        // Getter for age
+        public int getAge() {
+            return age;
+        }
+
+        // Display student info
+        public void displayInfo() {
+            System.out.println("Tên: " + name + ", Tuổi: " + age);
+        }
+    }
+
+public class StudentManager {
+    private static ArrayList<Student> students = new ArrayList<>();
+
     public static void main(String[] args) {
-        ContactManager manager = new ContactManager();
         Scanner scanner = new Scanner(System.in);
         int choice;
 
         do {
-            System.out.println("\n--- Quản Lý Danh Bạ ---");
-            System.out.println("1. Thêm liên hệ");
-            System.out.println("2. Hiển thị danh sách liên hệ");
-            System.out.println("3. Tìm kiếm liên hệ");
-            System.out.println("4. Xóa liên hệ");
-            System.out.println("5. Thoát");
-            System.out.print("Lựa chọn của bạn: ");
+            System.out.println("\n--- Quản lý sinh viên ---");
+            System.out.println("1. Thêm sinh viên");
+            System.out.println("2. Hiển thị danh sách sinh viên");
+            System.out.println("3. Xóa sinh viên theo tên");
+            System.out.println("4. Thoát");
+            System.out.print("Chọn một tùy chọn: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Đọc dòng trống
+            scanner.nextLine(); // Đọc bỏ dòng trống
 
             switch (choice) {
                 case 1:
-                    System.out.print("Nhập tên: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Nhập số điện thoại: ");
-                    String phoneNumber = scanner.nextLine();
-                    System.out.print("Nhập email: ");
-                    String email = scanner.nextLine();
-                    manager.addContact(new Contact(name, phoneNumber, email));
+                    addStudent(scanner);
                     break;
                 case 2:
-                    manager.displayContacts();
+                    displayStudents();
                     break;
                 case 3:
-                    System.out.print("Nhập tên để tìm kiếm: ");
-                    String searchName = scanner.nextLine();
-                    manager.searchContact(searchName);
+                    removeStudent(scanner);
                     break;
                 case 4:
-                    System.out.print("Nhập tên để xóa: ");
-                    String deleteName = scanner.nextLine();
-                    manager.deleteContact(deleteName);
-                    break;
-                case 5:
                     System.out.println("Thoát chương trình.");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ, vui lòng thử lại!");
+                    System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
             }
-        } while (choice != 5);
+        } while (choice != 4);
 
         scanner.close();
     }
-}
 
-public class SumTwoNumbers {
-    public static void main(String[] args) {
-        // Tạo một đối tượng Scanner để nhận dữ liệu nhập từ người dùng
-        Scanner scanner = new Scanner(System.in);
+    private static void addStudent(Scanner scanner) {
+        System.out.print("Nhập tên sinh viên: ");
+        String name = scanner.nextLine();
+        System.out.print("Nhập tuổi sinh viên: ");
+        int age = scanner.nextInt();
+        scanner.nextLine(); // Đọc bỏ dòng trống
 
-        // Nhập số nguyên thứ nhất
-        System.out.print("Nhập số nguyên thứ nhất: ");
-        int num1 = scanner.nextInt();
-
-        // Nhập số nguyên thứ hai
-        System.out.print("Nhập số nguyên thứ hai: ");
-        int num2 = scanner.nextInt();
-
-        // Tính tổng hai số
-        int sum = num1 + num2;
-
-        // Hiển thị kết quả
-        System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
-
-        // Đóng scanner
-        scanner.close();
+        students.add(new Student(name, age));
+        System.out.println("Đã thêm sinh viên thành công.");
     }
-}
 
-public class MultiplicationTable {
-    public static void main(String[] args) {
-        // Bảng cửu chương từ 1 đến 10
-        for (int i = 1; i <= 10; i++) {
-            System.out.println("Bảng cửu chương " + i + ":");
-            for (int j = 1; j <= 10; j++) {
-                System.out.println(i + " x " + j + " = " + (i * j));
+    private static void displayStudents() {
+        if (students.isEmpty()) {
+            System.out.println("Danh sách sinh viên trống.");
+        } else {
+            System.out.println("Danh sách sinh viên:");
+            for (Student student : students) {
+                student.displayInfo();
             }
-            System.out.println(); // Dòng trống giữa các bảng
+        }
+    }
+
+    private static void removeStudent(Scanner scanner) {
+        System.out.print("Nhập tên sinh viên cần xóa: ");
+        String name = scanner.nextLine();
+
+        boolean found = false;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getName().equalsIgnoreCase(name)) {
+                students.remove(i);
+                found = true;
+                System.out.println("Đã xóa sinh viên thành công.");
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Không tìm thấy sinh viên với tên: " + name);
         }
     }
 }
