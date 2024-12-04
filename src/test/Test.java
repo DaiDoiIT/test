@@ -29,7 +29,41 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+public class PrimeNumberCheck {
+    public static void main(String[] args) {
+        // Tạo đối tượng Scanner để nhận input từ người dùng
+        Scanner scanner = new Scanner(System.in);
 
+        // Yêu cầu người dùng nhập một số
+        System.out.print("Nhập một số nguyên dương: ");
+        int number = scanner.nextInt();
+
+        // Kiểm tra tính hợp lệ
+        if (number <= 1) {
+            System.out.println(number + " không phải là số nguyên tố.");
+        } else {
+            // Kiểm tra số nguyên tố
+            boolean isPrime = true;
+
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            // Kết quả
+            if (isPrime) {
+                System.out.println(number + " là số nguyên tố.");
+            } else {
+                System.out.println(number + " không phải là số nguyên tố.");
+            }
+        }
+
+        // Đóng scanner
+        scanner.close();
+    }
+}
 public class SumCalculator {
     public static void main(String[] args) {
         // Tạo một đối tượng Scanner để đọc đầu vào từ người dùng
