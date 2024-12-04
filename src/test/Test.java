@@ -887,3 +887,31 @@ public class HelloServlet extends HttpServlet {
         response.getWriter().println("<h1>Hello, World!</h1>");
     }
 }
+
+import java.io.*;
+
+public class FileReadWrite {
+    public static void main(String[] args) {
+        String fileName = "example.txt";
+
+        // Ghi file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("Xin chào, đây là nội dung trong file.");
+            System.out.println("Đã ghi vào file.");
+        } catch (IOException e) {
+            System.err.println("Lỗi khi ghi file: " + e.getMessage());
+        }
+
+        // Đọc file
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            System.out.println("Nội dung file:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Lỗi khi đọc file: " + e.getMessage());
+        }
+    }
+}
+
