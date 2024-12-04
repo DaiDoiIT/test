@@ -26,41 +26,8 @@ import java.awt.event.ActionListener;
  * @author vanh
  */
 
-public class PrimeNumberCheck {
-    public static void main(String[] args) {
-        // Tạo đối tượng Scanner để nhận input từ người dùng
-        Scanner scanner = new Scanner(System.in);
 
-        // Yêu cầu người dùng nhập một số
-        System.out.print("Nhập một số nguyên dương: ");
-        int number = scanner.nextInt();
 
-        // Kiểm tra tính hợp lệ
-        if (number <= 1) {
-            System.out.println(number + " không phải là số nguyên tố.");
-        } else {
-            // Kiểm tra số nguyên tố
-            boolean isPrime = true;
-
-            for (int i = 2; i <= Math.sqrt(number); i++) {
-                if (number % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-
-            // Kết quả
-            if (isPrime) {
-                System.out.println(number + " là số nguyên tố.");
-            } else {
-                System.out.println(number + " không phải là số nguyên tố.");
-            }
-        }
-
-        // Đóng scanner
-        scanner.close();
-    }
-}
 public class SumCalculator {
     public static void main(String[] args) {
         // Tạo một đối tượng Scanner để đọc đầu vào từ người dùng
@@ -134,7 +101,8 @@ public class SalesSystemGUI {
                 {"1", "Sản phẩm A", 100000},
                 {"2", "Sản phẩm B", 200000},
                 {"3", "Sản phẩm C", 300000},
-                {"4", "Sản phẩm D", 150000}
+                {"4", "Sản phẩm D", 150000},
+                {"5", "Sản phẩm E", 170000}
         };
 
         DefaultTableModel productModel = new DefaultTableModel(productData, productColumns);
@@ -612,6 +580,7 @@ public SalesApp() {
             SalesApp app = new SalesApp();
             app.setVisible(true);
         });
+        
     }
 
     public class SumEvenNumbers {
@@ -797,156 +766,20 @@ public SalesApp() {
             // Hiển thị kết quả
             System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
 
-            // Đóng scanner
-            scanner.close();
-        }
-    }
-
-    public class MultiplicationTable {
-        public static void main(String[] args) {
-            // Bảng cửu chương từ 1 đến 10
-            for (int i = 1; i <= 10; i++) {
-                System.out.println("Bảng cửu chương " + i + ":");
-                for (int j = 1; j <= 10; j++) {
-                    System.out.println(i + " x " + j + " = " + (i * j));
-                }
-                System.out.println(); // Dòng trống giữa các bảng
-            }
-        }
-    }
-
-    class Student {
-        private String name;
-        private int age;
-
-        // Constructor
-        public Student(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        // Getter for name
-        public String getName() {
-            return name;
-        }
-
-        // Getter for age
-        public int getAge() {
-            return age;
-        }
-
-        // Display student info
-        public void displayInfo() {
-            System.out.println("Tên: " + name + ", Tuổi: " + age);
-        }
-    }
-
-public class StudentManager {
-    private static ArrayList<Student> students = new ArrayList<>();
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\n--- Quản lý sinh viên ---");
-            System.out.println("1. Thêm sinh viên");
-            System.out.println("2. Hiển thị danh sách sinh viên");
-            System.out.println("3. Xóa sinh viên theo tên");
-            System.out.println("4. Thoát");
-            System.out.print("Chọn một tùy chọn: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Đọc bỏ dòng trống
-
-            switch (choice) {
-                case 1:
-                    addStudent(scanner);
-                    break;
-                case 2:
-                    displayStudents();
-                    break;
-                case 3:
-                    removeStudent(scanner);
-                    break;
-                case 4:
-                    System.out.println("Thoát chương trình.");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
-            }
-        } while (choice != 4);
-
+        // Đóng scanner
         scanner.close();
     }
-
-    private static void addStudent(Scanner scanner) {
-        System.out.print("Nhập tên sinh viên: ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập tuổi sinh viên: ");
-        int age = scanner.nextInt();
-        scanner.nextLine(); // Đọc bỏ dòng trống
-
-        students.add(new Student(name, age));
-        System.out.println("Đã thêm sinh viên thành công.");
-    }
-
-    private static void displayStudents() {
-        if (students.isEmpty()) {
-            System.out.println("Danh sách sinh viên trống.");
-        } else {
-            System.out.println("Danh sách sinh viên:");
-            for (Student student : students) {
-                student.displayInfo();
-            }
-        }
-    }
-
-    private static void removeStudent(Scanner scanner) {
-        System.out.print("Nhập tên sinh viên cần xóa: ");
-        String name = scanner.nextLine();
-
-        boolean found = false;
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getName().equalsIgnoreCase(name)) {
-                students.remove(i);
-                found = true;
-                System.out.println("Đã xóa sinh viên thành công.");
-                break;
-            }
-        }
-
-        if (!found) {
-            System.out.println("Không tìm thấy sinh viên với tên: " + name);
-        }
-    }
-
 }
 
-import java.io.*;
-
-public class FileReadWrite {
+public class MultiplicationTable {
     public static void main(String[] args) {
-        String fileName = "example.txt";
-
-        // Ghi file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write("Xin chào, đây là nội dung trong file.");
-            System.out.println("Đã ghi vào file.");
-        } catch (IOException e) {
-            System.err.println("Lỗi khi ghi file: " + e.getMessage());
-        }
-
-        // Đọc file
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            System.out.println("Nội dung file:");
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+        // Bảng cửu chương từ 1 đến 10
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Bảng cửu chương " + i + ":");
+            for (int j = 1; j <= 10; j++) {
+                System.out.println(i + " x " + j + " = " + (i * j));
             }
-        } catch (IOException e) {
-            System.err.println("Lỗi khi đọc file: " + e.getMessage());
+            System.out.println(); // Dòng trống giữa các bảng
         }
     }
-}
-
 }

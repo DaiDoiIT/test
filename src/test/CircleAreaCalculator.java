@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package test;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,70 +28,6 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
-
-public class PrimeNumberCheck {
-    public static void main(String[] args) {
-        // Tạo đối tượng Scanner để nhận input từ người dùng
-        Scanner scanner = new Scanner(System.in);
-
-        // Yêu cầu người dùng nhập một số
-        System.out.print("Nhập một số nguyên dương: ");
-        int number = scanner.nextInt();
-
-        // Kiểm tra tính hợp lệ
-        if (number <= 1) {
-            System.out.println(number + " không phải là số nguyên tố.");
-        } else {
-            // Kiểm tra số nguyên tố
-            boolean isPrime = true;
-
-            for (int i = 2; i <= Math.sqrt(number); i++) {
-                if (number % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-
-            // Kết quả
-            if (isPrime) {
-                System.out.println(number + " là số nguyên tố.");
-            } else {
-                System.out.println(number + " không phải là số nguyên tố.");
-            }
-        }
-
-        // Đóng scanner
-        scanner.close();
-    }
-}
-public class SumCalculator {
-    public static void main(String[] args) {
-        // Tạo một đối tượng Scanner để đọc đầu vào từ người dùng
-        Scanner scanner = new Scanner(System.in);
-
-        // Yêu cầu người dùng nhập số N
-        System.out.print("Nhập một số nguyên dương N: ");
-        int N = scanner.nextInt();
-
-        // Kiểm tra xem N có hợp lệ không
-        if (N <= 0) {
-            System.out.println("Vui lòng nhập một số nguyên dương lớn hơn 0.");
-        } else {
-            int sum = 0;
-
-            // Tính tổng các số từ 1 đến N
-            for (int i = 1; i <= N; i++) {
-                sum += i;
-            }
-
-            // Hiển thị kết quả
-            System.out.println("Tổng các số từ 1 đến " + N + " là: " + sum);
-        }
-
-        // Đóng Scanner
-        scanner.close();
-    }
-}
 
 public class CircleAreaCalculator {
     public static void main(String[] args) {
@@ -222,112 +161,7 @@ public class SalesSystemGUI {
     public static void main(String[] args) {
         new SalesSystemGUI();
     }
-
-    class Student {
-    private String name;
-    private int age;
-    private ArrayList<Integer> grades;
-
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-        this.grades = new ArrayList<>();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void addGrade(int grade) {
-        grades.add(grade);
-    }
-
-    public double calculateAverageGrade() {
-        int sum = 0;
-        for (int grade : grades) {
-            sum += grade;
-        }
-        return grades.isEmpty() ? 0 : (double) sum / grades.size();
-    }
-
-    public void displayInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Grades: " + grades);
-        System.out.println("Average Grade: " + calculateAverageGrade());
-    }
 }
-public class StudentManagementSystem {
-    private static ArrayList<Student> students = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        int choice;
-        do {
-            System.out.println("\nStudent Management System");
-            System.out.println("1. Add Student");
-            System.out.println("2. Show All Students");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
-
-            switch (choice) {
-                case 1:
-                    addStudent();
-                    break;
-                case 2:
-                    showAllStudents();
-                    break;
-                case 3:
-                    System.out.println("Exiting program...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        } while (choice != 3);
-    }
-}
-
-private static void addStudent() {
-        System.out.print("Enter student's name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter student's age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();  // Consume newline
-
-        Student student = new Student(name, age);
-        System.out.print("Enter student's name: ");
-
-        System.out.print("Enter student's name: ");
-        System.out.print("Viet ANh");
-        System.out.print("Enter number of grades: ");
-        int numGrades = scanner.nextInt();
-        for (int i = 0; i < numGrades; i++) {
-            System.out.print("Enter grade " + (i + 1) + ": ");
-            int grade = scanner.nextInt();
-            student.addGrade(grade);
-        }
-        students.add(student);
-        System.out.println("Student added successfully!");
-    }
-
-    private static void showAllStudents() {
-        if (students.isEmpty()) {
-            System.out.println("No students to display.");
-        } else {
-            for (Student student : students) {
-                student.displayInfo();
-                System.out.println();
-            }
-        }
-    }
-}
-
 
 public class Test {
 
@@ -471,11 +305,95 @@ public class Test {
 
        }
 
+
 }
 
 System.out.println("A commit");System.out.println("Lê Tuấn Anh");System.out.println("Nguyễn Thái An");System.out.println("Lần thứ 2");
 
 }
+
+
+         
+
+           System.out.println(number + " là số lẻ.");
+       }
+
+        System.out.println("JJJ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+
+        JFrame frame = new JFrame("Giao Diện Đơn Giản");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        // Tạo một nhãn (label)
+        JLabel label = new JLabel("Chào mừng bạn đến với Java GUI!", JLabel.CENTER);
+
+        // Tạo một nút (button)
+        JButton button = new JButton("Nhấn vào đây");
+
+        // Định nghĩa hành động khi nút được nhấn
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Cập nhật nhãn khi nút được nhấn
+                label.setText("Nút đã được nhấn!");
+            }
+        });
+
+        // Đặt bố cục và thêm các thành phần vào khung
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+        frame.add(label);
+        frame.add(button);
+
+        // Hiển thị cửa sổ
+        frame.setVisible(true);
+
+        System.out.println("A commit");
+        System.out.println("Lê Tuấn Anh");
+
+
+    }
+
+        System.out.println("A commit");
+        System.out.println("Lê Tuấn Anh");
+        System.out.println("Nguyễn Thái An");
+        System.out.println("Lần thứ 2");
+        String fileName = "example.txt";
+        String content = "Xin chào, đây là nội dung được ghi vào file.";
+
+        // Ghi vào file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+        } catch (IOException e) {
+            System.out.println("Lỗi khi ghi file: " + e.getMessage());
+        }
+
+        // Đọc từ file
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("Nội dung trong file: " + line);
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        }      
+
+        int a = 4;
+        System.out.println(a + "là một số");
+        System.out.println("A commit");
+        System.out.println("Phép toán: 1 + 1 = 2");
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < args.length; j++) {
+                System.out.println(j);
+            }
+        }
+        System.out.println("An");
+        
+    }
+
+ 
 
 }
 
@@ -598,6 +516,27 @@ public SalesApp() {
         add(addToCartButton, BorderLayout.SOUTH);
         add(totalPanel, BorderLayout.NORTH);
     }
+    
+    System.out.println("Lê Tuấn Anh");
+    ArrayList<String> students = new ArrayList<>();
+
+        // Thêm sinh viên vào danh sách
+        students.add("Nguyễn Văn A");
+        students.add("Trần Thị B");
+        students.add("Lê Văn C");
+
+        // In danh sách sinh viên
+        System.out.println("Danh sách sinh viên:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
+
+        // Xóa một sinh viên
+        students.remove("Trần Thị B");
+        System.out.println("\nDanh sách sau khi xóa:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
 
     private void updateTotal() {
         int total = 0;
@@ -613,6 +552,7 @@ public SalesApp() {
             app.setVisible(true);
         });
     }
+
 
     public class SumEvenNumbers {
         public static void main(String[] args) {
@@ -726,227 +666,54 @@ public SalesApp() {
     }
 
     // Chương trình chính
-    public class ContactManagementSystem {
-        public static void main(String[] args) {
-            ContactManager manager = new ContactManager();
-            Scanner scanner = new Scanner(System.in);
-            int choice;
-
-            do {
-                System.out.println("\n--- Quản Lý Danh Bạ ---");
-                System.out.println("1. Thêm liên hệ");
-                System.out.println("2. Hiển thị danh sách liên hệ");
-                System.out.println("3. Tìm kiếm liên hệ");
-                System.out.println("4. Xóa liên hệ");
-                System.out.println("5. Thoát");
-                System.out.print("Lựa chọn của bạn: ");
-                choice = scanner.nextInt();
-                scanner.nextLine(); // Đọc dòng trống
-
-                switch (choice) {
-                    case 1:
-                        System.out.print("Nhập tên: ");
-                        String name = scanner.nextLine();
-                        System.out.print("Nhập số điện thoại: ");
-                        String phoneNumber = scanner.nextLine();
-                        System.out.print("Nhập email: ");
-                        String email = scanner.nextLine();
-                        manager.addContact(new Contact(name, phoneNumber, email));
-                        break;
-                    case 2:
-                        manager.displayContacts();
-                        break;
-                    case 3:
-                        System.out.print("Nhập tên để tìm kiếm: ");
-                        String searchName = scanner.nextLine();
-                        manager.searchContact(searchName);
-                        break;
-                    case 4:
-                        System.out.print("Nhập tên để xóa: ");
-                        String deleteName = scanner.nextLine();
-                        manager.deleteContact(deleteName);
-                        break;
-                    case 5:
-                        System.out.println("Thoát chương trình.");
-                        break;
-                    default:
-                        System.out.println("Lựa chọn không hợp lệ, vui lòng thử lại!");
-                }
-            } while (choice != 5);
-
-            scanner.close();
-        }
-    }
-
-    public class SumTwoNumbers {
-        public static void main(String[] args) {
-            // Tạo một đối tượng Scanner để nhận dữ liệu nhập từ người dùng
-            Scanner scanner = new Scanner(System.in);
-
-            // Nhập số nguyên thứ nhất
-            System.out.print("Nhập số nguyên thứ nhất: ");
-            int num1 = scanner.nextInt();
-
-            // Nhập số nguyên thứ hai
-            System.out.print("Nhập số nguyên thứ hai: ");
-            int num2 = scanner.nextInt();
-
-            // Tính tổng hai số
-            int sum = num1 + num2;
-
-            // Hiển thị kết quả
-            System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
-
-            // Đóng scanner
-            scanner.close();
-        }
-    }
-
-    public class MultiplicationTable {
-        public static void main(String[] args) {
-            // Bảng cửu chương từ 1 đến 10
-            for (int i = 1; i <= 10; i++) {
-                System.out.println("Bảng cửu chương " + i + ":");
-                for (int j = 1; j <= 10; j++) {
-                    System.out.println(i + " x " + j + " = " + (i * j));
-                }
-                System.out.println(); // Dòng trống giữa các bảng
-            }
-        }
-    }
-
-    class Student {
-        private String name;
-        private int age;
-
-        // Constructor
-        public Student(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        // Getter for name
-        public String getName() {
-            return name;
-        }
-
-        // Getter for age
-        public int getAge() {
-            return age;
-        }
-
-        // Display student info
-        public void displayInfo() {
-            System.out.println("Tên: " + name + ", Tuổi: " + age);
-        }
-    }
-
-public class StudentManager {
-    private static ArrayList<Student> students = new ArrayList<>();
-
+public class ContactManagementSystem {
     public static void main(String[] args) {
+        ContactManager manager = new ContactManager();
         Scanner scanner = new Scanner(System.in);
         int choice;
 
         do {
-            System.out.println("\n--- Quản lý sinh viên ---");
-            System.out.println("1. Thêm sinh viên");
-            System.out.println("2. Hiển thị danh sách sinh viên");
-            System.out.println("3. Xóa sinh viên theo tên");
-            System.out.println("4. Thoát");
-            System.out.print("Chọn một tùy chọn: ");
+            System.out.println("\n--- Quản Lý Danh Bạ ---");
+            System.out.println("1. Thêm liên hệ");
+            System.out.println("2. Hiển thị danh sách liên hệ");
+            System.out.println("3. Tìm kiếm liên hệ");
+            System.out.println("4. Xóa liên hệ");
+            System.out.println("5. Thoát");
+            System.out.print("Lựa chọn của bạn: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Đọc bỏ dòng trống
+            scanner.nextLine(); // Đọc dòng trống
 
             switch (choice) {
                 case 1:
-                    addStudent(scanner);
+                    System.out.print("Nhập tên: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Nhập số điện thoại: ");
+                    String phoneNumber = scanner.nextLine();
+                    System.out.print("Nhập email: ");
+                    String email = scanner.nextLine();
+                    manager.addContact(new Contact(name, phoneNumber, email));
                     break;
                 case 2:
-                    displayStudents();
+                    manager.displayContacts();
                     break;
                 case 3:
-                    removeStudent(scanner);
+                    System.out.print("Nhập tên để tìm kiếm: ");
+                    String searchName = scanner.nextLine();
+                    manager.searchContact(searchName);
                     break;
                 case 4:
+                    System.out.print("Nhập tên để xóa: ");
+                    String deleteName = scanner.nextLine();
+                    manager.deleteContact(deleteName);
+                    break;
+                case 5:
                     System.out.println("Thoát chương trình.");
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+                    System.out.println("Lựa chọn không hợp lệ, vui lòng thử lại!");
             }
-        } while (choice != 4);
+        } while (choice != 5);
 
         scanner.close();
     }
-
-    private static void addStudent(Scanner scanner) {
-        System.out.print("Nhập tên sinh viên: ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập tuổi sinh viên: ");
-        int age = scanner.nextInt();
-        scanner.nextLine(); // Đọc bỏ dòng trống
-
-        students.add(new Student(name, age));
-        System.out.println("Đã thêm sinh viên thành công.");
-    }
-
-    private static void displayStudents() {
-        if (students.isEmpty()) {
-            System.out.println("Danh sách sinh viên trống.");
-        } else {
-            System.out.println("Danh sách sinh viên:");
-            for (Student student : students) {
-                student.displayInfo();
-            }
-        }
-    }
-
-    private static void removeStudent(Scanner scanner) {
-        System.out.print("Nhập tên sinh viên cần xóa: ");
-        String name = scanner.nextLine();
-
-        boolean found = false;
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getName().equalsIgnoreCase(name)) {
-                students.remove(i);
-                found = true;
-                System.out.println("Đã xóa sinh viên thành công.");
-                break;
-            }
-        }
-
-        if (!found) {
-            System.out.println("Không tìm thấy sinh viên với tên: " + name);
-        }
-    }
-
-}
-
-import java.io.*;
-
-public class FileReadWrite {
-    public static void main(String[] args) {
-        String fileName = "example.txt";
-
-        // Ghi file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write("Xin chào, đây là nội dung trong file.");
-            System.out.println("Đã ghi vào file.");
-        } catch (IOException e) {
-            System.err.println("Lỗi khi ghi file: " + e.getMessage());
-        }
-
-        // Đọc file
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            System.out.println("Nội dung file:");
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.err.println("Lỗi khi đọc file: " + e.getMessage());
-        }
-    }
-}
-
 }

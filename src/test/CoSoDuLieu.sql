@@ -14,11 +14,16 @@ create table KhachHang(
 );
 
 INSERT INTO NhanVien VALUES
-('Viet Anh', 'NV01', 0901923045);
-('An', 'NV02', 0905784923);
+('Viet Anh', 'NV01', 0901923045),
+('An', 'NV02', 0905784923),
+('Binh','NV03',0192384726),
+('Thanh','NV04',0912382326),
+('Nga', 'NV05', 0182392840);
+
 INSERT INTO KhachHang VALUES
-('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283');
-('Cao Nghia Hai', 'KH02', 0827394810, 'S019232');
+('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283'),
+('Cao Nghia Hai', 'KH02', 0827394810, 'S019232'),
+('Hang Say O', 'KH03', 09182384622, 'S91823');
 
 select * from NhanVien
 select * from NhanVien where ten = 'Viet Anh';
@@ -35,40 +40,27 @@ select * from KhachHang where MA = 'KH02';
 SELECT session_id, encrypt_option 
 FROM sys.dm_exec_connections;
 
--- Tạo server audit
-CREATE SERVER AUDIT AuditLog
-TO FILE (FILEPATH = 'C:\AuditLogs\', MAXSIZE = 10 MB, MAX_ROLLOVER_FILES = 10);
+SELECT * FROM NhanVien ASC;
 
--- Bật audit
-ALTER SERVER AUDIT AuditLog WITH (STATE = ON);
+-- Cài đặt extension
+CREATE EXTENSION http_fdw;
 
--- Tạo audit specification cho các hành động cụ thể
-CREATE SERVER AUDIT SPECIFICATION AuditSpec
-FOR SERVER AUDIT AuditLog
-ADD (FAILED_LOGIN_GROUP),
-ADD (SUCCESSFUL_LOGIN_GROUP);
+-- Tạo server cho HTTP API
+CREATE SERVER http_server
+FOREIGN DATA WRAPPER http_fdw
+OPTIONS (uri 'https://api.example.com');
 
--- Bật audit specification
-ALTER SERVER AUDIT SPECIFICATION AuditSpec WITH (STATE = ON);
+-- Tạo bảng ánh xạ dữ liệu
+CREATE FOREIGN TABLE api_data (
+    id INTEGER,
+    name TEXT
+) SERVER http_server OPTIONS (format 'json');
 
--- Kiểm tra các truy vấn đang chạy
-SELECT session_id, status, command, blocking_session_id, wait_time, wait_type, last_wait_type, cpu_time, memory_usage
-FROM sys.dm_exec_requests;
+UPDATE NhanVien
+SET ten = 'Nguyen Binh Khang' WHERE Ma = 'NV01'
 
--- Kiểm tra lịch sử truy vấn
-SELECT TOP 10
-    qs.sql_handle,
-    qs.execution_count,
-    qs.total_worker_time AS CPUTime,
-    qs.total_elapsed_time AS ElapsedTime,
-    SUBSTRING(st.text, (qs.statement_start_offset / 2) + 1,
-    ((CASE qs.statement_end_offset
-          WHEN -1 THEN DATALENGTH(st.text)
-          ELSE qs.statement_end_offset
-      END - qs.statement_start_offset) / 2) + 1) AS QueryText
-FROM sys.dm_exec_query_stats qs
-CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) st
-ORDER BY qs.total_worker_time DESC;
+
+
 
 
 
