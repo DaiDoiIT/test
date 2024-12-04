@@ -17,11 +17,13 @@ INSERT INTO NhanVien VALUES
 ('Viet Anh', 'NV01', 0901923045),
 ('An', 'NV02', 0905784923),
 ('Binh','NV03',0192384726),
-('Thanh','NV04',0912382326)
+('Thanh','NV04',0912382326),
+('Nga', 'NV05', 0182392840);
 
 INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283'),
-('Cao Nghia Hai', 'KH02', 0827394810, 'S019232');
+('Cao Nghia Hai', 'KH02', 0827394810, 'S019232'),
+('Hang Say O', 'KH03', 09182384622, 'S91823');
 
 select * from NhanVien
 select * from NhanVien where ten = 'Viet Anh';
@@ -56,6 +58,8 @@ CREATE FOREIGN TABLE api_data (
 
 UPDATE NhanVien
 SET ten = 'Nguyen Binh Khang' WHERE Ma = 'NV01'
+
+
 
 
 
