@@ -59,6 +59,12 @@ CREATE FOREIGN TABLE api_data (
 UPDATE NhanVien
 SET ten = 'Nguyen Binh Khang' WHERE Ma = 'NV01'
 
+UPDATE NhanVien
+SET ten = '' WHERE Ma = '';
+
+UPDATE KhachHang
+SET ten = '' WHERE Ma = '';
+
 
 
 
