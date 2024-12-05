@@ -29,6 +29,87 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+
+class Student {
+    private String name;
+    private int age;
+    private String id;
+
+    // Constructor
+    public Student(String name, int age, String id) {
+        this.name = name;
+        this.age = age;
+        this.id = id;
+    }
+
+    // Getter
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    // Display student information
+    public void displayInfo() {
+        System.out.println("ID: " + id + " | Name: " + name + " | Age: " + age);
+    }
+}
+
+public class StudentManagement {
+    public static void main(String[] args) {
+        ArrayList<Student> students = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n--- Student Management System ---");
+            System.out.println("1. Add a student");
+            System.out.println("2. Display all students");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter student name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter student age: ");
+                    int age = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline
+                    System.out.print("Enter student ID: ");
+                    String id = scanner.nextLine();
+                    students.add(new Student(name, age, id));
+                    System.out.println("Student added successfully!");
+                    break;
+
+                case 2:
+                    System.out.println("\n--- List of Students ---");
+                    if (students.isEmpty()) {
+                        System.out.println("No students to display.");
+                    } else {
+                        for (Student student : students) {
+                            student.displayInfo();
+                        }
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Exiting program...");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
 public class PrimeNumberCheck {
     public static void main(String[] args) {
         // Tạo đối tượng Scanner để nhận input từ người dùng
