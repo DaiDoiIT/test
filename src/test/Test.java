@@ -1004,6 +1004,24 @@ public class StudentManager {
 
 }
 
+public class HelloWorld {
+    public static void main(String[] args) {
+        // In ra màn hình dòng chữ "Hello, World!"
+        System.out.println("Hello, World!");
+
+        // Phép toán đơn giản
+        int a = 5;
+        int b = 10;
+        int sum = a + b;
+
+        // In kết quả phép toán
+        System.out.println("Tổng của " + a + " và " + b + " là: " + sum);
+    }
+}
+
+
+}
+
 import java.io.*;
 
 public class FileReadWrite {
@@ -1032,3 +1050,4 @@ public class FileReadWrite {
 }
 
 }
+
