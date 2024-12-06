@@ -631,3 +631,75 @@ public class HelloWorld {
         System.out.println("Tổng của " + a + " và " + b + " là: " + sum);
     }
 }
+public class ToDoListManager {
+    private ArrayList<String> tasks;
+
+    public ToDoListManager() {
+        tasks = new ArrayList<>();
+    }
+
+    public void addTask(String task) {
+        tasks.add(task);
+        System.out.println("Đã thêm công việc: " + task);
+    }
+
+    public void removeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            String removedTask = tasks.remove(index);
+            System.out.println("Đã xóa công việc: " + removedTask);
+        } else {
+            System.out.println("Chỉ mục không hợp lệ!");
+        }
+    }
+
+    public void displayTasks() {
+        if (tasks.isEmpty()) {
+            System.out.println("Danh sách công việc trống!");
+        } else {
+            System.out.println("Danh sách công việc:");
+            for (int i = 0; i < tasks.size(); i++) {
+                System.out.println((i + 1) + ". " + tasks.get(i));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        ToDoListManager manager = new ToDoListManager();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\n===== Quản Lý To-Do List =====");
+            System.out.println("1. Thêm công việc");
+            System.out.println("2. Xóa công việc");
+            System.out.println("3. Hiển thị công việc");
+            System.out.println("4. Thoát");
+            System.out.print("Lựa chọn của bạn: ");
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Xử lý dòng trống
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Nhập công việc cần thêm: ");
+                    String task = scanner.nextLine();
+                    manager.addTask(task);
+                    break;
+                case 2:
+                    System.out.print("Nhập số thứ tự công việc cần xóa: ");
+                    int index = scanner.nextInt() - 1;
+                    manager.removeTask(index);
+                    break;
+                case 3:
+                    manager.displayTasks();
+                    break;
+                case 4:
+                    System.out.println("Thoát chương trình!");
+                    break;
+                default:
+                    System.out.println("Lựa chọn không hợp lệ!");
+            }
+        } while (choice != 4);
+
+        scanner.close();
+    }
+}
