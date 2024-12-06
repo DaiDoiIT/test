@@ -26,6 +26,51 @@ import java.awt.event.ActionListener;
  * @author vanh
  */
 
+public class NumberListManager {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Thêm số vào danh sách");
+            System.out.println("2. Hiển thị danh sách");
+            System.out.println("3. Xóa số theo giá trị");
+            System.out.println("4. Thoát");
+            System.out.print("Lựa chọn của bạn: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Nhập số cần thêm: ");
+                    int numToAdd = scanner.nextInt();
+                    numbers.add(numToAdd);
+                    System.out.println("Đã thêm " + numToAdd);
+                    break;
+                case 2:
+                    System.out.println("Danh sách số: " + numbers);
+                    break;
+                case 3:
+                    System.out.print("Nhập số cần xóa: ");
+                    int numToRemove = scanner.nextInt();
+                    if (numbers.remove((Integer) numToRemove)) {
+                        System.out.println("Đã xóa " + numToRemove);
+                    } else {
+                        System.out.println(numToRemove + " không có trong danh sách.");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Thoát chương trình.");
+                    break;
+                default:
+                    System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+            }
+        } while (choice != 4);
+
+        scanner.close();
+    }
+}
 
 class Student {
     private String name;
