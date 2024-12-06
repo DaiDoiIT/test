@@ -27,7 +27,8 @@ INSERT INTO NhanVien VALUES
 INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283'),
 ('Cao Nghia Hai', 'KH02', 0827394810, 'S019232'),
-('Hang Say O', 'KH03', 09182384622, 'S91823');
+('Hang Say O', 'KH03', 09182384622, 'S91823'),
+('Anh Tam', 'KH04', 0917382901, 'S1929389');
 
 select * from NhanVien
 select * from NhanVien where ten = 'Viet Anh';
