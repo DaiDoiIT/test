@@ -5,6 +5,8 @@ CREATE TABLE NhanVien(
     SDT int NOT NULL
 );
 
+drop table NhanVien;
+
 create table KhachHang(
     ten VARCHAR(255) NOT NULL,
     Ma VARCHAR(100) not null,
@@ -12,6 +14,8 @@ create table KhachHang(
     SoTinDung nchar(10) NOT NULL
 
 );
+
+drop table KhachHang;
 
 INSERT INTO NhanVien VALUES
 ('Viet Anh', 'NV01', 0901923045),
@@ -70,6 +74,7 @@ SET ten = '' WHERE Ma = '';
 -- SELECT FOR SHOWING TABLES
 -- INSERT INTO FOR INSERTING INFORMATION
 -- CREATE DATABASE FOR MAKING A NEW DATABASE
+
 
 
 
