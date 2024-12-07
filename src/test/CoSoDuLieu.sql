@@ -5,6 +5,8 @@ CREATE TABLE NhanVien(
     SDT int NOT NULL
 );
 
+drop table NhanVien;
+
 create table KhachHang(
     ten VARCHAR(255) NOT NULL,
     Ma VARCHAR(100) not null,
@@ -12,6 +14,8 @@ create table KhachHang(
     SoTinDung nchar(10) NOT NULL
 
 );
+
+drop table KhachHang;
 
 INSERT INTO NhanVien VALUES
 ('Viet Anh', 'NV01', 0901923045),
@@ -23,7 +27,8 @@ INSERT INTO NhanVien VALUES
 INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283'),
 ('Cao Nghia Hai', 'KH02', 0827394810, 'S019232'),
-('Hang Say O', 'KH03', 09182384622, 'S91823');
+('Hang Say O', 'KH03', 09182384622, 'S91823'),
+('Anh Tam', 'KH04', 0917382901, 'S1929389');
 
 select * from NhanVien
 select * from NhanVien where ten = 'Viet Anh';
@@ -58,6 +63,18 @@ CREATE FOREIGN TABLE api_data (
 
 UPDATE NhanVien
 SET ten = 'Nguyen Binh Khang' WHERE Ma = 'NV01'
+
+UPDATE NhanVien
+SET ten = '' WHERE Ma = '';
+
+UPDATE KhachHang
+SET ten = '' WHERE Ma = '';
+
+-- UPDATE FOR UPDATING
+-- CREATE FOR CREATING
+-- SELECT FOR SHOWING TABLES
+-- INSERT INTO FOR INSERTING INFORMATION
+-- CREATE DATABASE FOR MAKING A NEW DATABASE
 
 
 
