@@ -1136,3 +1136,21 @@ public class ToDoListManager {
         scanner.close();
     }
 }
+
+public class Fibonacci {
+    // Hàm đệ quy tính số Fibonacci tại vị trí n
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        int n = 10; // Số phần tử Fibonacci cần in ra
+        System.out.println("Dãy Fibonacci đầu tiên với " + n + " phần tử:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+}
