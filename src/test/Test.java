@@ -1096,6 +1096,18 @@ public class ToDoListManager {
         }
     }
 
+public class ArrayExample {
+    public static void main(String[] args) {
+        // Khởi tạo mảng
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // In mảng
+        System.out.println("Mảng:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+    }
+
     public static void main(String[] args) {
         ToDoListManager manager = new ToDoListManager();
         Scanner scanner = new Scanner(System.in);
@@ -1135,6 +1147,7 @@ public class ToDoListManager {
 
         scanner.close();
     }
+
 }
 
 public class Fibonacci {
