@@ -28,9 +28,11 @@ INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283'),
 ('Cao Nghia Hai', 'KH02', 0827394810, 'S019232'),
 ('Hang Say O', 'KH03', 09182384622, 'S91823'),
-('Anh Tam', 'KH04', 0917382901, 'S1929389');
+('Anh Tam', 'KH04', 0917382901, 'S1929389'),
+('An B', 'KH05', 0928301923, 'S1829012');
 
-select * from NhanVien
+select * from KhachHang;
+select * from NhanVien;
 select * from NhanVien where ten = 'Viet Anh';
 select * from NhanVien LIMIT 5;
 select ten from KhachHang LIMIT 10;
@@ -68,13 +70,15 @@ UPDATE NhanVien
 SET ten = '' WHERE Ma = '';
 
 UPDATE KhachHang
-SET ten = '' WHERE Ma = '';
+SET ten = '' WHERE Ma = ''; -- Chỉnh mã khách hàng sao cho phù hợp
 
 -- UPDATE FOR UPDATING
 -- CREATE FOR CREATING
 -- SELECT FOR SHOWING TABLES
 -- INSERT INTO FOR INSERTING INFORMATION
 -- CREATE DATABASE FOR MAKING A NEW DATABASE
+
+
 
 
 
