@@ -1154,3 +1154,33 @@ public class Fibonacci {
         }
     }
 }
+
+public class SumOfNumbers {
+    public static void main(String[] args) {
+        // Tạo đối tượng Scanner để nhận input từ người dùng
+        Scanner scanner = new Scanner(System.in);
+        
+        // In ra lời nhắc nhập số
+        System.out.print("Nhập vào một số nguyên dương: ");
+        
+        // Nhận giá trị từ người dùng
+        int n = scanner.nextInt();
+        
+        // Kiểm tra xem số nhập vào có hợp lệ không
+        if (n < 1) {
+            System.out.println("Số nhập vào phải là số nguyên dương.");
+        } else {
+            // Tính tổng các số từ 1 đến n
+            int sum = 0;
+            for (int i = 1; i <= n; i++) {
+                sum += i;
+            }
+
+            // In ra kết quả
+            System.out.println("Tổng các số từ 1 đến " + n + " là: " + sum);
+        }
+        
+        // Đóng đối tượng Scanner
+        scanner.close();
+    }
+}
