@@ -68,13 +68,15 @@ UPDATE NhanVien
 SET ten = '' WHERE Ma = '';
 
 UPDATE KhachHang
-SET ten = '' WHERE Ma = '';
+SET ten = '' WHERE Ma = ''; -- Chỉnh mã khách hàng sao cho phù hợp
 
 -- UPDATE FOR UPDATING
 -- CREATE FOR CREATING
 -- SELECT FOR SHOWING TABLES
 -- INSERT INTO FOR INSERTING INFORMATION
 -- CREATE DATABASE FOR MAKING A NEW DATABASE
+
+
 
 
 
