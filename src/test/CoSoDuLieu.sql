@@ -83,6 +83,7 @@ select * from NhanVien ORDER BY ASC
 -- Lỗi ở dòng thứ 62
 
 ALTER TABLE NhanVien ADD COLUMN DiaChi varchar(255);
+-- Tái Phát
 
 
 
