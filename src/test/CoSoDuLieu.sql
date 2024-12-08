@@ -5,6 +5,7 @@ CREATE TABLE NhanVien(
     SDT int NOT NULL
 );
 
+DELETE FROM DoanhNghiep;
 drop table NhanVien;
 
 create table KhachHang(
@@ -72,11 +73,14 @@ SET ten = '' WHERE Ma = '';
 UPDATE KhachHang
 SET ten = '' WHERE Ma = ''; -- Chỉnh mã khách hàng sao cho phù hợp
 
+select * from NhanVien ORDER BY ASC
+
 -- UPDATE FOR UPDATING
 -- CREATE FOR CREATING
 -- SELECT FOR SHOWING TABLES
 -- INSERT INTO FOR INSERTING INFORMATION
 -- CREATE DATABASE FOR MAKING A NEW DATABASE
+
 
 
 
