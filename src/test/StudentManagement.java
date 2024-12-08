@@ -25,76 +25,7 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
-public class SumTwoNumbers {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        // Yêu cầu người dùng nhập số thứ nhất
-        System.out.print("Nhập số thứ nhất: ");
-        int num1 = scanner.nextInt();
-
-        // Yêu cầu người dùng nhập số thứ hai
-        System.out.print("Nhập số thứ hai: ");
-        int num2 = scanner.nextInt();
-
-        // Tính tổng hai số
-        int sum = num1 + num2;
-
-        // Hiển thị kết quả
-        System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
-
-
-        // Đóng Scanner
-        scanner.close();
-    }
-}
-
-
-public class NumberListManager {
-    public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\nMenu:");
-            System.out.println("1. Thêm số vào danh sách");
-            System.out.println("2. Hiển thị danh sách");
-            System.out.println("3. Xóa số theo giá trị");
-            System.out.println("4. Thoát");
-            System.out.print("Lựa chọn của bạn: ");
-            choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Nhập số cần thêm: ");
-                    int numToAdd = scanner.nextInt();
-                    numbers.add(numToAdd);
-                    System.out.println("Đã thêm " + numToAdd);
-                    break;
-                case 2:
-                    System.out.println("Danh sách số: " + numbers);
-                    break;
-                case 3:
-                    System.out.print("Nhập số cần xóa: ");
-                    int numToRemove = scanner.nextInt();
-                    if (numbers.remove((Integer) numToRemove)) {
-                        System.out.println("Đã xóa " + numToRemove);
-                    } else {
-                        System.out.println(numToRemove + " không có trong danh sách.");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Thoát chương trình.");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
-            }
-        } while (choice != 4);
-
-        scanner.close();
-    }
-}
 
 class Student {
     private String name;
@@ -478,7 +409,6 @@ private static void addStudent() {
         }
     }
 }
-
 
 
 public class Test {
@@ -1071,6 +1001,7 @@ public class StudentManager {
             System.out.println("Không tìm thấy sinh viên với tên: " + name);
         }
     }
+
 }
 
 public class HelloWorld {
@@ -1085,108 +1016,5 @@ public class HelloWorld {
 
         // In kết quả phép toán
         System.out.println("Tổng của " + a + " và " + b + " là: " + sum);
-    }
-}
-public class ToDoListManager {
-    private ArrayList<String> tasks;
-
-    public ToDoListManager() {
-        tasks = new ArrayList<>();
-    }
-
-    public void addTask(String task) {
-        tasks.add(task);
-        System.out.println("Đã thêm công việc: " + task);
-    }
-
-    public void removeTask(int index) {
-        if (index >= 0 && index < tasks.size()) {
-            String removedTask = tasks.remove(index);
-            System.out.println("Đã xóa công việc: " + removedTask);
-        } else {
-            System.out.println("Chỉ mục không hợp lệ!");
-        }
-    }
-
-    public void displayTasks() {
-        if (tasks.isEmpty()) {
-            System.out.println("Danh sách công việc trống!");
-        } else {
-            System.out.println("Danh sách công việc:");
-            for (int i = 0; i < tasks.size(); i++) {
-                System.out.println((i + 1) + ". " + tasks.get(i));
-            }
-        }
-    }
-
-public class ArrayExample {
-    public static void main(String[] args) {
-        // Khởi tạo mảng
-        int[] numbers = {1, 2, 3, 4, 5};
-
-        // In mảng
-        System.out.println("Mảng:");
-        for (int num : numbers) {
-            System.out.print(num + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        ToDoListManager manager = new ToDoListManager();
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\n===== Quản Lý To-Do List =====");
-            System.out.println("1. Thêm công việc");
-            System.out.println("2. Xóa công việc");
-            System.out.println("3. Hiển thị công việc");
-            System.out.println("4. Thoát");
-            System.out.print("Lựa chọn của bạn: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Xử lý dòng trống
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Nhập công việc cần thêm: ");
-                    String task = scanner.nextLine();
-                    manager.addTask(task);
-                    break;
-                case 2:
-                    System.out.print("Nhập số thứ tự công việc cần xóa: ");
-                    int index = scanner.nextInt() - 1;
-                    manager.removeTask(index);
-                    break;
-                case 3:
-                    manager.displayTasks();
-                    break;
-                case 4:
-                    System.out.println("Thoát chương trình!");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ!");
-            }
-        } while (choice != 4);
-
-        scanner.close();
-    }
-
-}
-
-public class Fibonacci {
-    // Hàm đệ quy tính số Fibonacci tại vị trí n
-    public static int fibonacci(int n) {
-        if (n <= 1) {
-            return n;
-        }
-        return fibonacci(n - 1) + fibonacci(n - 2);
-    }
-
-    public static void main(String[] args) {
-        int n = 10; // Số phần tử Fibonacci cần in ra
-        System.out.println("Dãy Fibonacci đầu tiên với " + n + " phần tử:");
-        for (int i = 0; i < n; i++) {
-            System.out.print(fibonacci(i) + " ");
-        }
     }
 }
