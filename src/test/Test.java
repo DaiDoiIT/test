@@ -25,7 +25,28 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+public class SumTwoNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        // Yêu cầu người dùng nhập số thứ nhất
+        System.out.print("Nhập số thứ nhất: ");
+        int num1 = scanner.nextInt();
+
+        // Yêu cầu người dùng nhập số thứ hai
+        System.out.print("Nhập số thứ hai: ");
+        int num2 = scanner.nextInt();
+
+        // Tính tổng hai số
+        int sum = num1 + num2;
+
+        // Hiển thị kết quả
+        System.out.println("Tổng của " + num1 + " và " + num2 + " là: " + sum);
+
+        // Đóng Scanner
+        scanner.close();
+    }
+}
 public class NumberListManager {
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>();
