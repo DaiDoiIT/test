@@ -82,6 +82,8 @@ select * from NhanVien ORDER BY ASC
 -- CREATE DATABASE FOR MAKING A NEW DATABASE
 -- Lỗi ở dòng thứ 62
 
+ALTER TABLE NhanVien ADD COLUMN DiaChi varchar(255);
+
 
 
 
