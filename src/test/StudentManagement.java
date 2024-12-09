@@ -27,52 +27,6 @@ import java.awt.event.ActionListener;
  */
 
 
-public class NumberListManager {
-    public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\nMenu:");
-            System.out.println("1. Thêm số vào danh sách");
-            System.out.println("2. Hiển thị danh sách");
-            System.out.println("3. Xóa số theo giá trị");
-            System.out.println("4. Thoát");
-            System.out.print("Lựa chọn của bạn: ");
-            choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Nhập số cần thêm: ");
-                    int numToAdd = scanner.nextInt();
-                    numbers.add(numToAdd);
-                    System.out.println("Đã thêm " + numToAdd);
-                    break;
-                case 2:
-                    System.out.println("Danh sách số: " + numbers);
-                    break;
-                case 3:
-                    System.out.print("Nhập số cần xóa: ");
-                    int numToRemove = scanner.nextInt();
-                    if (numbers.remove((Integer) numToRemove)) {
-                        System.out.println("Đã xóa " + numToRemove);
-                    } else {
-                        System.out.println(numToRemove + " không có trong danh sách.");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Thoát chương trình.");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
-            }
-        } while (choice != 4);
-
-        scanner.close();
-    }
-}
-
 class Student {
     private String name;
     private int age;
@@ -455,7 +409,6 @@ private static void addStudent() {
         }
     }
 }
-
 
 
 public class Test {
@@ -1048,6 +1001,7 @@ public class StudentManager {
             System.out.println("Không tìm thấy sinh viên với tên: " + name);
         }
     }
+
 }
 
 public class HelloWorld {
@@ -1063,49 +1017,4 @@ public class HelloWorld {
         // In kết quả phép toán
         System.out.println("Tổng của " + a + " và " + b + " là: " + sum);
     }
-}
-public class ToDoListManager {
-    private ArrayList<String> tasks;
-
-    public ToDoListManager() {
-        tasks = new ArrayList<>();
-    }
-
-    public void addTask(String task) {
-        tasks.add(task);
-        System.out.println("Đã thêm công việc: " + task);
-    }
-
-    public void removeTask(int index) {
-        if (index >= 0 && index < tasks.size()) {
-            String removedTask = tasks.remove(index);
-            System.out.println("Đã xóa công việc: " + removedTask);
-        } else {
-            System.out.println("Chỉ mục không hợp lệ!");
-        }
-    }
-
-    public void displayTasks() {
-        if (tasks.isEmpty()) {
-            System.out.println("Danh sách công việc trống!");
-        } else {
-            System.out.println("Danh sách công việc:");
-            for (int i = 0; i < tasks.size(); i++) {
-                System.out.println((i + 1) + ". " + tasks.get(i));
-            }
-        }
-    }
-
-public class ArrayExample {
-    public static void main(String[] args) {
-        // Khởi tạo mảng
-        int[] numbers = {1, 2, 3, 4, 5};
-
-        // In mảng
-        System.out.println("Mảng:");
-        for (int num : numbers) {
-            System.out.print(num + " ");
-        }
-    }
-
 }
