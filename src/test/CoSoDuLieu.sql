@@ -86,6 +86,7 @@ ALTER TABLE NhanVien ADD COLUMN DiaChi varchar(255);
 -- Tái Phát
 -- Sử dụng công cụ đo lường frontend và backend
 -- Xác định các điểm nghẽn (bottlenecks)
+-- Ghi log và theo dõi
 
 
 
