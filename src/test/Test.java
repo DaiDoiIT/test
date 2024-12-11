@@ -25,6 +25,30 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+public class MultiplyTwoNumbers {
+    public static void main(String[] args) {
+        // Tạo đối tượng Scanner để nhận đầu vào từ người dùng
+        Scanner scanner = new Scanner(System.in);
+
+        // Yêu cầu người dùng nhập số thứ nhất
+        System.out.print("Nhập số thứ nhất: ");
+        int number1 = scanner.nextInt();
+
+        // Yêu cầu người dùng nhập số thứ hai
+        System.out.print("Nhập số thứ hai: ");
+        int number2 = scanner.nextInt();
+
+        // Tính tích hai số
+        int product = number1 * number2;
+
+        // Hiển thị kết quả
+        System.out.println("Tích của " + number1 + " và " + number2 + " là: " + product);
+
+        // Đóng Scanner
+        scanner.close();
+    }
+}
+
 public class SumTwoNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
