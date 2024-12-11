@@ -5,6 +5,8 @@ CREATE TABLE NhanVien(
     SDT int NOT NULL
 );
 
+drop table NhanVien;
+
 create table KhachHang(
     ten VARCHAR(255) NOT NULL,
     Ma VARCHAR(100) not null,
@@ -13,17 +15,24 @@ create table KhachHang(
 
 );
 
+drop table KhachHang;
+
 INSERT INTO NhanVien VALUES
 ('Viet Anh', 'NV01', 0901923045),
 ('An', 'NV02', 0905784923),
 ('Binh','NV03',0192384726),
-('Thanh','NV04',0912382326)
+('Thanh','NV04',0912382326),
+('Nga', 'NV05', 0182392840);
 
 INSERT INTO KhachHang VALUES
 ('Nguyen Cao Quang', 'KH01', 0923102985, 'S19283'),
-('Cao Nghia Hai', 'KH02', 0827394810, 'S019232');
+('Cao Nghia Hai', 'KH02', 0827394810, 'S019232'),
+('Hang Say O', 'KH03', 09182384622, 'S91823'),
+('Anh Tam', 'KH04', 0917382901, 'S1929389'),
+('An B', 'KH05', 0928301923, 'S1829012');
 
-select * from NhanVien
+select * from KhachHang;
+select * from NhanVien;
 select * from NhanVien where ten = 'Viet Anh';
 select * from NhanVien LIMIT 5;
 select ten from KhachHang LIMIT 10;
@@ -56,6 +65,22 @@ CREATE FOREIGN TABLE api_data (
 
 UPDATE NhanVien
 SET ten = 'Nguyen Binh Khang' WHERE Ma = 'NV01'
+
+UPDATE NhanVien
+SET ten = '' WHERE Ma = '';
+
+UPDATE KhachHang
+SET ten = '' WHERE Ma = ''; -- Chỉnh mã khách hàng sao cho phù hợp
+
+-- UPDATE FOR UPDATING
+-- CREATE FOR CREATING
+-- SELECT FOR SHOWING TABLES
+-- INSERT INTO FOR INSERTING INFORMATION
+-- CREATE DATABASE FOR MAKING A NEW DATABASE
+
+
+
+
 
 
 
