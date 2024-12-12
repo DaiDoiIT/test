@@ -25,6 +25,37 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+public class BMICalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Nhập chiều cao và cân nặng từ người dùng
+        System.out.print("Nhập chiều cao của bạn (m): ");
+        double height = scanner.nextDouble();
+
+        System.out.print("Nhập cân nặng của bạn (kg): ");
+        double weight = scanner.nextDouble();
+
+        // Tính chỉ số BMI
+        double bmi = weight / (height * height);
+
+        // Hiển thị kết quả và phân loại BMI
+        System.out.printf("Chỉ số BMI của bạn là: %.2f\n", bmi);
+
+        if (bmi < 18.5) {
+            System.out.println("Bạn thuộc nhóm thiếu cân.");
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            System.out.println("Bạn có cân nặng bình thường.");
+        } else if (bmi >= 25 && bmi < 29.9) {
+            System.out.println("Bạn thuộc nhóm thừa cân.");
+        } else {
+            System.out.println("Bạn thuộc nhóm béo phì.");
+        }
+
+        scanner.close();
+    }
+}
+
 public class MultiplyTwoNumbers {
     public static void main(String[] args) {
         // Tạo đối tượng Scanner để nhận đầu vào từ người dùng
