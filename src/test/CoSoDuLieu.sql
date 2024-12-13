@@ -87,9 +87,8 @@ ALTER TABLE NhanVien ADD COLUMN DiaChi varchar(255);
 -- Sử dụng công cụ đo lường frontend và backend
 -- Xác định các điểm nghẽn (bottlenecks)
 -- Ghi log và theo dõi
-
-
-
+-- Nén phản hồi từ server bằng Gzip hoặc Brotli.
+-- Tối ưu hóa API
 
 
 
