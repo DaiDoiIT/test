@@ -25,6 +25,48 @@ import java.awt.event.ActionListener;
  *
  * @author vanh
  */
+class Contact {
+    private String name;
+    private String phoneNumber;
+
+    public Contact(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return name + " - " + phoneNumber;
+    }
+}
+
+public class PhoneBookManager {
+    private ArrayList<Contact> contacts = new ArrayList<>();
+
+    public void addContact(String name, String phoneNumber) {
+        contacts.add(new Contact(name, phoneNumber));
+    }
+
+    public void listContacts() {
+        for (Contact contact : contacts) {
+            System.out.println(contact);
+        }
+    }
+
+    public static void main(String[] args) {
+        PhoneBookManager manager = new PhoneBookManager();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter phone number: ");
+        String phoneNumber = scanner.nextLine();
+
+        manager.addContact(name, phoneNumber);
+        System.out.println("\nContacts:");
+        manager.listContacts();
+    }
+}
 public class BMICalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
