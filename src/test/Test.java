@@ -51,6 +51,7 @@ public class PhoneBookManager {
         for (Contact contact : contacts) {
             System.out.println(contact);
         }
+        System.out.println("viet anh");
     }
 
     public static void main(String[] args) {
